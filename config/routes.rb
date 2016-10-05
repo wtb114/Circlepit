@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
-resources :artists, only: :show
+
   root to: "top#index"
+  resources :artists, only: :show
+  
 end

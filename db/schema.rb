@@ -11,10 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161006094220) do
+ActiveRecord::Schema.define(version: 20161006103953) do
 
   create_table "artists", force: :cascade do |t|
-    t.integer  "artist_id",            limit: 4
     t.string   "artist_name",          limit: 255
     t.string   "artist_name_japanese", limit: 255
     t.text     "artist_image_url",     limit: 65535
@@ -24,7 +23,6 @@ ActiveRecord::Schema.define(version: 20161006094220) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.integer  "event_id",       limit: 4
     t.string   "event_name",     limit: 255
     t.datetime "event_date"
     t.string   "event_location", limit: 255
@@ -33,7 +31,6 @@ ActiveRecord::Schema.define(version: 20161006094220) do
   end
 
   create_table "groups", force: :cascade do |t|
-    t.integer  "group_id",                     limit: 4
     t.string   "group_name",                   limit: 255
     t.text     "group_comment",                limit: 65535
     t.string   "group_top_image_file_name",    limit: 255

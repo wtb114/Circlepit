@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161006092721) do
+ActiveRecord::Schema.define(version: 20161006094220) do
 
   create_table "artists", force: :cascade do |t|
     t.integer  "artist_id",            limit: 4
@@ -65,6 +65,10 @@ ActiveRecord::Schema.define(version: 20161006092721) do
     t.string   "first_name",             limit: 255
     t.string   "family_name_kana",       limit: 255
     t.string   "first_name_kana",        limit: 255
+    t.string   "avatar_file_name",       limit: 255
+    t.string   "avatar_content_type",    limit: 255
+    t.integer  "avatar_file_size",       limit: 4
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

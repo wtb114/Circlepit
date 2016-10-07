@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   resources :artists, only: :show
   resources :users, only: [:show, :edit, :update]
   resources :events, only: :show
-  resources :groups, only: :show
+  resources :groups, only: [:show, :edit, :update]
 end

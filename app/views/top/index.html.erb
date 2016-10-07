@@ -5,5 +5,14 @@
     <%= link_to "プロフィールを登録する", edit_user_path(current_user), { class: "btn btn-lg btn-primary withripple" } %>
   </header>
 <% else %>
+  <div class="contents row" >
+    <% @artists.each do |artist| %>
+      <ul class="name">
+              <%= link_to artist.artist_name, "/artists/#{artist.id}", method: :get %>
+      <div class="content_post" style="background-image: url(<%= artist.artist_image_url %>);">
+      </div>
+    </ul>
 
+    <% end %>
+  </div>
 <% end %>

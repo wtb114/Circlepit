@@ -752,3 +752,27 @@ footer {
     }
   }
 }
+
+.content_post {
+    position: relative;
+   max-width: auto;
+   height: 400px;
+    color: #fff;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 3px;
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      border-radius: 3px;
+    }
+   }
+  .name {
+  font-size: 50px;
+  background-color: #222222;
+  }

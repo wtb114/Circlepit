@@ -23,7 +23,8 @@ class User < ActiveRecord::Base
   end
 
   #association
-  has_many :artists
+  has_many :favorites
+  has_many :artists, through: :favorites
   has_many :events
   has_many :groups
 end

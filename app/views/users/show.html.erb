@@ -9,3 +9,19 @@
     <% end %>
   </div>
 </div>
+
+    <h3>お気に入りのアーティスト</h3>
+    <% @user.artists.each_with_index do |artist,i| %>
+          <tr>
+            <div class="name"><%= artist.artist_name %>
+              <div class="name3"><%= link_to "削除",favorite_path(@favorites[i][:id]), method: :delete %>
+              </div>
+            </div>
+
+            <div class="content_post" style="background-image: url(<%= artist.artist_image_url %>);">
+            </div>
+          </tr>
+          <div> オフィシャルページ</div>
+          <a href="<%= artist.artist_url %>" target="_blank"><%= artist.artist_url %></a>
+      </tr>
+    <% end %>

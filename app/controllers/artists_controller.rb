@@ -1,5 +1,9 @@
 class ArtistsController < ApplicationController
 
+  def index
+    @artists = Artist.all.order("created_at DESC").page(params[:page]).per(5)
+  end
+
   def show
     @artist = Artist.find(params[:id])
   end

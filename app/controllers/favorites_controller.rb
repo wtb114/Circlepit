@@ -4,7 +4,7 @@ class FavoritesController < ApplicationController
     @artist_id = Artist.find(params[:id]).id
     @favorite = Favorite.new(artist_id: @artist_id, user_id: @user_id)
     if @favorite.save
-      redirect_to artists_path
+      redirect_to user_path(current_user)
     end
   end
 

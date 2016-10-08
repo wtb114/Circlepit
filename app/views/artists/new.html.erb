@@ -1,0 +1,25 @@
+  <% if current_user == User.find(18) %>
+<div class="contents row">
+  <div class="container">
+    <%= form_tag('/artists', method: :post) do %>
+      <h3>
+      新規アーティストの追加
+      </h3>
+      <li>
+      <textarea cols="30" rows="1" name="artist_name" placeholder="アーティスト名" ></textarea>
+      </li>
+      <li>
+      <textarea cols="30" rows="1" name="artist_name_japanese" placeholder="アーティスト名 カナ" ></textarea>
+      </li>
+      <li>
+      <textarea cols="30" rows="1" name="artist_url" placeholder="アーティストURL" ></textarea>
+      </li>
+      <li>
+      <input placeholder="artist_image_url" type="text" name="artist_image_url">
+      </li>
+      <input type="submit" value="SENT">
+    <% end %>
+  </div>
+</div>
+  <% else %>
+  <% end %>

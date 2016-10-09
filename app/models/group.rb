@@ -4,5 +4,5 @@ class Group < ActiveRecord::Base
   belongs_to :artist
   has_many :users
   belongs_to :event
-  
+
 end

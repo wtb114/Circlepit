@@ -9,6 +9,6 @@ Rails.application.routes.draw do
     end
   end
   resources :favorites, only: [:destroy]
-  resources :events, only: [:show]
-  resources :groups, only: [:show, :edit, :update]
+  resources :events
+  resources :groups, only: [:show, :edit, :update, :destroy]
 end

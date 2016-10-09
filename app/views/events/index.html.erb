@@ -1,0 +1,18 @@
+  <h3>イベント一覧</h3>
+  <span class="name2">
+  <%= link_to "新規イベントの登録", new_event_path %></span>
+
+<div class="contents row" >
+    <% @events.each do |event| %>
+      <div class="name">
+      <%= link_to event.event_name,event_path(event) %>
+      </div>
+      <div class="name2">
+      <%= event.event_date %>
+      </div>
+      <div class="name2">
+      <%= event.event_location %>
+      </div>
+    <% end %>
+</div>
+<%= paginate(@events) %>

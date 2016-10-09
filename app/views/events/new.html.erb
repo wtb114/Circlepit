@@ -1,0 +1,17 @@
+<div>
+<%= form_tag('/events', method: :post) do %>
+  <ul>
+  <li>
+      <textarea cols="30" rows="1" name="event_name" placeholder="イベント名" ></textarea>
+  <li><%=form_for (@event) do |f| %>
+    <%= f.datetime_select :event_date, :default => Time.now + 1.month %>
+    <% end %>
+  </li>
+      <textarea cols="30" rows="1" name="event_location" placeholder="イベント開催場所" ></textarea>
+  </li>
+  <li>
+      <input type="submit" value="SENT">
+  </li>
+  </ul>
+<% end %>
+</div>

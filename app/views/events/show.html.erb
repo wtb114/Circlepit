@@ -1,0 +1,11 @@
+<div class="contents row" >
+  <div class="name">
+      <%= @event.event_name %>
+      <div class="name2">
+      <%= link_to "このイベントに参加", events_path(@events), method: :get %>
+        </div>
+      <%= @event.event_date %>
+      <p><%= @event.event_location %></p>
+  </div>
+
+</div>

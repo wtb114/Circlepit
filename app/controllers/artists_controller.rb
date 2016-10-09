@@ -12,8 +12,24 @@ class ArtistsController < ApplicationController
   end
 
   def create
-    Artist.create(artist_params)
+    Artist.create(artist_name: artist_params[:artist_name], artist_name_japanese: artist_params[:artist_name_japanese], artist_image_url: artist_params[:artist_image_url], artist_url: artist_params[:artist_url], user_id: current_user.id)
     redirect_to :root and return
+  end
+
+  def destroy
+    @artist = Artist.find(params[:id])
+    @artist.destroy if @artist.user_id == current_user.id
+    redirect_to artists_path
+  end
+
+  def edit
+    @artist = Artist.find(params[:id])
+  end
+
+  def update
+    artist = Artist.find(params[:id])
+    artist.update(artist_params) if artist.user_id == current_user.id
+     redirect_to artists_path
   end
 
   private

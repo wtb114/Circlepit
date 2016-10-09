@@ -1,0 +1,25 @@
+  <% if current_user.id == @artist.user_id %>
+<div class="contents row">
+  <div class="container">
+    <%= form_tag("/artists/#{@artist.id}", method: :patch) do %>
+      <h3>
+      アーティストの編集
+      </h3>
+      <li>
+      <textarea cols="30" rows="1" name="artist_name" placeholder="アーティスト名" ><%= @artist.artist_name %></textarea>
+      </li>
+      <li>
+      <textarea cols="30" rows="1" name="artist_name_japanese" placeholder="アーティスト名 カナ" ><%= @artist.artist_name_japanese %></textarea>
+      </li>
+      <li>
+      <textarea cols="30" rows="1" name="artist_url" placeholder="アーティストURL" ><%= @artist.artist_url %></textarea>
+      </li>
+      <li>
+      <textarea cols="30" rows="1" name="artist_image_url" placeholder="アーティスト画像URL"><%= @artist.artist_image_url %></textarea>
+      </li>
+      <input type="submit" value="SENT">
+    <% end %>
+  </div>
+</div>
+  <% else %>
+  <% end %>

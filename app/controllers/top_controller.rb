@@ -1,6 +1,7 @@
 class TopController < ApplicationController
 
   def index
-    @artists = Artist.all.order("created_at DESC").page(params[:page]).per(5)
+    @artist = Artist.order("RAND()").first
+    @event = Event.order("RAND()").first
   end
 end

@@ -1,13 +1,33 @@
+  <h2>アーティスト検索</h2>
   <div class="contents row" >
+    <div>
+    <%= search_form_for @search do |f| %>
+    <%= f.label :artist_name_or_artist_name_japanese_cont, '🔎' %>
+    <%= f.text_field :artist_name_or_artist_name_japanese_cont %>
+    <%= f.submit 'SEARCH' %>
+    <br />
+    <%= link_to '検索条件のクリア', request.path %>
+    </div>
+    <span class="name2">
+    <%= link_to "新規アーティストの登録", new_artist_path, {class: 'btn btn-primary withripple' } %>
+    </span>
+    <% end %>
     <% @artists.each do |artist| %>
-      <div class="name">
-        <%= link_to artist.artist_name,artist_path(artist) %><div class="name2">(<%= artist.artist_name_japanese %>)</div>
+    <% @favorites = Favorite.where(artist_id: artist.id).all %>
+      <div class="name3">
+        <%= link_to artist.artist_name,artist_path(artist) %>
+        <div class="name2">
+        お気に入り登録数: <%= link_to "#{@favorites.length}件", show_favorites_artist_path(artist) %><br/>
+        (<%= artist.artist_name_japanese %>)
+        </div>
       </div>
       <div class="name2">
       <%= link_to "お気に入りに登録", add_artist_path(artist), method: :post %>
         </div>
+
       <div class="content_post" style="background-image: url(<%= artist.artist_image_url %>);">
       </div>
+      <br/>
     <% end %>
-  </div>
 <%= paginate(@artists) %>
+  </div>

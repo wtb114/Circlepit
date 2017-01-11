@@ -1,22 +1,44 @@
 <div class="contents row" >
-  <div class="name">
-      <%= @artist.artist_name %>
+<h2>アーティストの詳細&nbsp;&nbsp;(お気に入りに登録者数:<%= @favorites.length %>人)</h2>
+  <div class="name3">
+    <a href="<%= @artist.artist_url %>" target="blank"><%= @artist.artist_name %></a>
       <br>(<%= @artist.artist_name_japanese %>)
       <div class="name2">
       <%= link_to "お気に入りに登録", add_artist_path(@artist), method: :post %>
-        </div>
-        <% if current_user.id == @artist.user_id %>
-        <div class="name2">
+      </div>
+      <div class="name2">
+        <%= link_to "新規イベント登録", new_event_path %>
+      </div>
+      <% if current_user.id == @artist.user_id %>
+      <div class="name2">
       <%= link_to "削除", "/artists/#{@artist.id}", method: :delete %>
-        </div>
-        <div class="name2">
+      </div>
+      <div class="name2">
       <%= link_to "編集", edit_artist_path, method: :get %>
-        </div>
-        <% else %>
-        <% end %>
+      </div>
+      <% else %>
+      <% end %>
   </div>
-  <div class="content_post" style="background-image: url(<%= @artist.artist_image_url %>);">
+  <div class="content_post" style="background-image: url(<%= @artist.artist_image_url %>);" >
   </div>
-            <div> オフィシャルページ
-          <a href="<%= @artist.artist_url %>" target="_blank"><%= @artist.artist_url %></a></div>
+  <div> Official
+          <a href="<%= @artist.artist_url %>" target="_blank"><%= @artist.artist_url %></a>
+  </div>
+
+  <h2><%= @favorites.length %>人のユーザーがお気に入りに登録</h2>
+  <%= link_to "ユーザー一覧", "/artists/#{@artist.id}/show_favorites", {class: 'btn btn-primary withripple' } %>
+
+  <h2><%= @artist.artist_name %>のイベント一覧</h2>
+  <% @events.each do |event| %>
+  <div class="name3">
+  <%= link_to event.event_name,event_path(event) %>
+  </div>
+  <div class="name2">
+  <%= event.event_date.strftime("%Y-%m-%d %H:%M:%S") %>
+  </div>
+  <div class="name2">
+  <%= event.event_location %>
+  </div>
+  <% end %>
+  <%= paginate(@events) %>
 </div>

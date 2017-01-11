@@ -52,3 +52,12 @@ end
   gem 'twitter-bootstrap-rails'
   gem 'bootstrap-material-design', '0.1.4'
   gem 'pry-rails'
+  gem 'ransack'
+  gem 'omniauth'
+  gem 'omniauth-twitter'
+  gem 'omniauth-facebook'
+
+  group :production, :staging do
+  gem 'rails_12factor'
+  end
+

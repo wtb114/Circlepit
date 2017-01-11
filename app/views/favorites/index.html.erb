@@ -1,0 +1,18 @@
+<div class="row">
+  <h2>お気に入りのアーティスト</h2>
+  <%= link_to 'アーティスト検索', artists_path, {class: 'btn btn-primary withripple' }%>
+    <% @favorites.each do |favorite| %>
+      <% artist = Artist.find(favorite.artist_id) %>
+          <tr>
+            <div class="name3"><%= link_to artist.artist_name,artist_path(artist) %>
+              <div class="name2"><%= link_to "お気に入りのアーティストから削除",favorite_path(favorite), method: :delete %>
+              </div>
+            <div class="name2"><a href="<%= artist.artist_url %>" target="_blank">Official ホームページ</a></div>
+            </div>
+
+          </tr>
+    <br />
+    <% end %>
+    <%= paginate(@favorites) %>
+
+</div>

@@ -1,20 +1,29 @@
 <div class="contents row" >
-  <div class="name">
-      <%= @event.event_name %>
-      <div class="name2">
-      <%= link_to "このイベントに参加", events_path(@events), method: :get %>
-    </div>
-        <% if current_user.id == @event.user_id %>
+<h2>イベントの詳細&nbsp;&nbsp;(参加者数:<%= @clips.length %>人)</h2>
+  <div class="name3">
+    <%= @event.event_name %>
     <div class="name2">
-      <%= link_to "このイベントを削除", "/events/#{@event.id}", method: :delete %>
+      <% @artist_id = @event.artist_id %>
+      <% @artist = Artist.where(id: @artist_id).first %>
+      出演アーティスト:<%= link_to @artist.artist_name,artist_path(@artist) %>
+      </div>
+    <% if current_user.id == @event.user_id %>
+    <div class="name2">
+    <%= link_to "このイベントを削除", "/events/#{@event.id}", method: :delete %>
     </div>
     <div class="name2">
-      <%= link_to "編集", edit_event_path, method: :get %>
-        </div>
-        <% else %>
-        <% end %>
-      <%= @event.event_date %>
-      <p><%= @event.event_location %></p>
+    <%= link_to "編集", edit_event_path, method: :get %>
+    </div>
+    <% else %>
+    <% end %>
+    <%= @event.event_date.strftime("%Y-%m-%d %H:%M:%S") %>
+    <p><%= @event.event_location %></p>
+    <div class="name2">
+    <%= link_to "このイベントに参加", add_event_path(@event), method: :post %>
+    </div>
   </div>
+
+  <h2><%= @clips.length %>人のユーザーがこのイベントに参加</h2>
+  <%= link_to "参加中のユーザー一覧", "/events/#{@event.id}/show_clips", {class: 'btn btn-primary withripple' } %>
 
 </div>

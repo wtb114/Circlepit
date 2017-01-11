@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161009110644) do
+ActiveRecord::Schema.define(version: 20170110102322) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "artist_name",          limit: 255
@@ -23,6 +23,24 @@ ActiveRecord::Schema.define(version: 20161009110644) do
     t.integer  "user_id",              limit: 4
   end
 
+  create_table "clips", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4, null: false
+    t.integer  "event_id",   limit: 4, null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "clips", ["event_id"], name: "index_clips_on_event_id", using: :btree
+  add_index "clips", ["user_id"], name: "index_clips_on_user_id", using: :btree
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "tweet_id",   limit: 4
+    t.text     "text",       limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
   create_table "events", force: :cascade do |t|
     t.string   "event_name",     limit: 255
     t.datetime "event_date"
@@ -30,6 +48,16 @@ ActiveRecord::Schema.define(version: 20161009110644) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.integer  "user_id",        limit: 4
+    t.integer  "artist_id",      limit: 4
+    t.integer  "artist_id2",     limit: 4
+    t.integer  "artist_id3",     limit: 4
+    t.integer  "artist_id4",     limit: 4
+    t.integer  "artist_id5",     limit: 4
+    t.integer  "artist_id6",     limit: 4
+    t.integer  "artist_id7",     limit: 4
+    t.integer  "artist_id8",     limit: 4
+    t.integer  "artist_id9",     limit: 4
+    t.integer  "artist_id10",    limit: 4
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -51,6 +79,24 @@ ActiveRecord::Schema.define(version: 20161009110644) do
     t.datetime "group_top_image_updated_at"
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer  "follower_id",  limit: 4
+    t.integer  "following_id", limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "relationships", ["follower_id", "following_id"], name: "index_relationships_on_follower_id_and_following_id", unique: true, using: :btree
+  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
+  add_index "relationships", ["following_id"], name: "index_relationships_on_following_id", using: :btree
+
+  create_table "tweets", force: :cascade do |t|
+    t.text     "text",       limit: 65535
+    t.integer  "user_id",    limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -79,6 +125,13 @@ ActiveRecord::Schema.define(version: 20161009110644) do
     t.integer  "avatar_file_size",       limit: 4
     t.datetime "avatar_updated_at"
     t.string   "username",               limit: 255
+    t.string   "uid",                    limit: 255
+    t.string   "provider",               limit: 255
+    t.date     "birthday"
+    t.string   "hometown",               limit: 255
+    t.string   "location",               limit: 255
+    t.string   "gender",                 limit: 255
+    t.string   "comment",                limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

@@ -1,25 +1,29 @@
-  <% if current_user == User.find(18) %>
 <div class="contents row">
-  <div class="container">
     <%= form_tag('/artists', method: :post) do %>
-      <h3>
+      <h2>
       新規アーティストの追加
-      </h3>
+      </h2>
+      <ul style="list-style:none;">
       <li>
-      <textarea cols="30" rows="1" name="artist_name" placeholder="アーティスト名" ></textarea>
+      <textarea cols="30" rows="1" name="artist_name" placeholder="アーティスト名(必須)" ></textarea>
       </li>
       <li>
-      <textarea cols="30" rows="1" name="artist_name_japanese" placeholder="アーティスト名 カナ" ></textarea>
+      <textarea cols="30" rows="1" name="artist_name_japanese" placeholder="アーティスト名 カナ(必須)" ></textarea>
       </li>
       <li>
-      <textarea cols="30" rows="1" name="artist_url" placeholder="アーティストURL" ></textarea>
+      <textarea cols="30" rows="1" name="artist_url" placeholder="アーティストURL(必須)" ></textarea>
       </li>
       <li>
-      <textarea cols="30" rows="1" name="artist_image_url" placeholder="アーティスト画像URL"></textarea>
+      <textarea cols="30" rows="1" name="artist_image_url" placeholder="アーティスト画像URL(必須)"></textarea>
       </li>
+      <li>
       <input type="submit" value="SENT">
+      </li>
+      </ul>
     <% end %>
-  </div>
+      <div class = "name2">※アーティスト画像URLについて:<br/>
+      1.アーティストのホームページ上で右クリック。<br/>
+      2.「画像アドレスをコピー」をクリック。<br/>
+      3.フォームの"アーティスト画像URL"にペースト(貼り付け)してください。
+      </div>
 </div>
-  <% else %>
-  <% end %>

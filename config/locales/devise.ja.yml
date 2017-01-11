@@ -4,9 +4,9 @@
 ja:
   devise:
     confirmations:
-      confirmed: "アカウントの確認が成功しました。"
-      send_instructions: "アカウントの確認方法をメールでご連絡します。"
-      send_paranoid_instructions: "あなたのメールアドレスが登録済みの場合、アカウントの確認方法をメールでご連絡します。"
+      confirmed: "アカウントの承認が成功しました。"
+      send_instructions: "アカウントの承認方法をメールでご連絡します。"
+      send_paranoid_instructions: "あなたのメールアドレスが登録済みの場合、アカウントの承認方法をメールでご連絡します。"
     failure:
       already_authenticated: "既にログイン済みです。"
       inactive: 'アカウントが有効になっていません。'
@@ -16,7 +16,7 @@ ja:
       not_found_in_database: "メールアドレスまたはパスワードが無効です。"
       timeout: "一定時間が経過したため、再度ログインが必要です"
       unauthenticated: "続けるには、ログインまたは登録（サインアップ）が必要です。"
-      unconfirmed: "続ける前に、アカウントの確認をお願いします。"
+      unconfirmed: "ご登録のメールアドレスに承認メールをお送りしました。続ける前に、アカウントの承認をお願いします。"
     mailer:
       confirmation_instructions:
         subject: "アカウントの登録方法"

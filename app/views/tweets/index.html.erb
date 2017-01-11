@@ -1,0 +1,31 @@
+<h2>ツイート検索</h2>
+<div>
+    <%= search_form_for @search do |f| %>
+    <%= f.label :text_cont, '🔎' %>
+    <%= f.text_field :text_cont %>
+    <%= f.submit 'SEARCH' %>&nbsp;&nbsp;<%= link_to ">>ユーザーから検索", users_path %>
+    <br />
+    <%= link_to '検索条件のクリア', request.path %>
+    </div>
+    <% end %>
+<%= link_to 'ツイートを投稿する', new_tweet_path, {class: 'btn btn-primary withripple' }%>
+<%= link_to '自分のツイート一覧へ', show_tweets_path, {class: 'btn btn-primary withripple' }%>
+<%= link_to 'フォロー中のツイート一覧へ', following_tweets_path, {class: 'btn btn-primary withripple' }%>
+<% @tweets.each do |tweet| %>
+    <div class="contents row" >
+      <div class="name3">投稿者:<%= link_to tweet.user.username, user_path(tweet.user), method: :get %></div>
+      <div class="name2">投稿日時:<%= tweet.created_at.strftime("%Y-%m-%d %H:%M:%S") %></div>
+      <div class="name2"><%= link_to '詳細', tweet_path(tweet), method: :get %></div>
+      <% if user_signed_in? && current_user.id == tweet.user_id %>
+      <div class="name2">
+       <%= link_to '編集', edit_tweet_path(tweet), method: :get %>
+      </div>
+      <div class="name2">
+       <%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %>
+      </div>
+       <% end %>
+      <div class="name3"><%= simple_format(tweet.text) %></div>
+    </div>
+<% end %>
+  <%= paginate(@tweets) %>
+</div>

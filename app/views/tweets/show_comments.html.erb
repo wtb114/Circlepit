@@ -1,0 +1,10 @@
+<h2>自分のコメント一覧</h2>
+<% if @comments %>
+        <% @comments.each do |comment| %>
+        <div class="name2">投稿日時:<%= comment.created_at.strftime("%Y-%m-%d %H:%M:%S") %></div>
+        <div class="name2"><%= comment.text %></div>
+        <div class="name2"><%= link_to '詳細', tweet_path(comment.tweet_id), method: :get %></div>
+        <% end %>
+      <% end %>
+  <%= paginate(@comments) %>
+</div>

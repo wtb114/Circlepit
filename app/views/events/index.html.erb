@@ -1,18 +1,91 @@
-  <h3>イベント一覧</h3>
+  <h2>イベント検索</h2>
+  <div>
+    <%= search_form_for @search do |f| %>
+    <%= f.label :event_name_or_event_location_cont, '🔎' %>
+    <%= f.text_field :event_name_or_event_location_cont %>
+    <%= f.submit 'SEARCH' %>&nbsp;&nbsp;<%= link_to ">>アーティストから検索", artists_path %>
+    <br />
+    <%= f.label :event_date, '🔎' %>
+    <%= f.date_select :event_date_gteq, :default => Time.now - 1.month %>〜
+    <%= f.date_select :event_date_lteq, :default => Time.now + 1.year %>
+    <%= f.submit 'SEARCH' %>
+    <br />
+    <%= link_to '検索条件のクリア', request.path %>
+    </div>
+    <% end %>
   <span class="name2">
-  <%= link_to "新規イベントの登録", new_event_path %></span>
+  <%= link_to "新規イベントの登録", new_event_path, {class: 'btn btn-primary withripple' } %></span>
 
 <div class="contents row" >
     <% @events.each do |event| %>
-      <div class="name">
+    <% @clips = Clip.where(event_id: event.id).all %>
+      <div class="name3">
       <%= link_to event.event_name,event_path(event) %>
       </div>
       <div class="name2">
-      <%= event.event_date %>
+      イベント参加者数: <%= link_to "#{@clips.length}人", show_clips_event_path(event) %><br/>
+       <% unless event.artist_id == nil %>
+        <% @artist_id = event.artist_id %>
+        <% @artist = Artist.where(id: @artist_id).first %>
+        出演アーティスト:<%= link_to @artist.artist_name,artist_path(@artist) %>
+       <% end %>
+       <% unless event.artist_id2 == nil %>
+        <% @artist_id2 = event.artist_id2 %>
+        <% @artist2 = Artist.where(id: @artist_id2).first %>
+        /<%= link_to @artist2.artist_name,artist_path(@artist2) %>
+       <% end %>
+       <% unless event.artist_id3 == nil %>
+        <% @artist_id3 = event.artist_id3 %>
+        <% @artist3 = Artist.where(id: @artist_id3).first %>
+        /<%= link_to @artist3.artist_name,artist_path(@artist3) %>
+       <% end %>
+       <% unless event.artist_id4 == nil %>
+        <% @artist_id4 = event.artist_id4 %>
+        <% @artist4 = Artist.where(id: @artist_id4).first %>
+        /<%= link_to @artist4.artist_name,artist_path(@artist4) %>
+       <% end %>
+       <% unless event.artist_id5 == nil %>
+        <% @artist_id5 = event.artist_id5 %>
+        <% @artist5 = Artist.where(id: @artist_id5).first %>
+        /<%= link_to @artist5.artist_name,artist_path(@artist5) %>
+       <% end %>
+       <% unless event.artist_id6 == nil %>
+        <% @artist_id6 = event.artist_id6 %>
+        <% @artist6 = Artist.where(id: @artist_id6).first %>
+        /<%= link_to @artist6.artist_name,artist_path(@artist6) %>
+       <% end %>
+       <% unless event.artist_id7 == nil %>
+        <% @artist_id7 = event.artist_id7 %>
+        <% @artist7 = Artist.where(id: @artist_id7).first %>
+        /<%= link_to @artist7.artist_name,artist_path(@artist7) %>
+       <% end %>
+       <% unless event.artist_id8 == nil %>
+        <% @artist_id8 = event.artist_id8 %>
+        <% @artist8 = Artist.where(id: @artist_id8).first %>
+        /<%= link_to @artist8.artist_name,artist_path(@artist8) %>
+       <% end %>
+       <% unless event.artist_id9 == nil %>
+        <% @artist_id9 = event.artist_id9 %>
+        <% @artist9 = Artist.where(id: @artist_id9).first %>
+        /<%= link_to @artist9.artist_name,artist_path(@artist9) %>
+       <% end %>
+       <% unless event.artist_id10 == nil %>
+        <% @artist_id10 = event.artist_id10 %>
+        <% @artist10 = Artist.where(id: @artist_id10).first %>
+        /<%= link_to @artist10.artist_name,artist_path(@artist10) %>
+       <% end %>
+      </div>
+
+      <div class="name2">
+      <%= event.event_date.strftime("%Y-%m-%d %H:%M:%S") %>
       </div>
       <div class="name2">
       <%= event.event_location %>
       </div>
+      <div class="name2">
+      <%= link_to "このイベントに参加", add_event_path(event), method: :post %>
+      </div>
+      <br/>
     <% end %>
-</div>
 <%= paginate(@events) %>
+</div>

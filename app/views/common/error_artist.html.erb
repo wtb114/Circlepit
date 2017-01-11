@@ -1,0 +1,13 @@
+<div class="contents row">
+      <h2>
+        エラーが発生しました。
+      </h2>
+      <div class ="name2">
+        1.入力必須項目に漏れはありませんか?<br/>
+        <br/>
+        2.アーティストの重複登録を防ぐため、すでに登録済みの「アーティスト名」または「アーティストURL」が入力された場合は登録ができません。
+        <br/>「アーティスト名」が同一の別アーティストを登録する場合は入力形式を変更してお試しください。<br/>
+        (例)アーティスト名:Circlepit → アーティスト名:Circlepit(Japan)
+      </div>
+      <%= link_to '新規アーティスト登録へ戻る', new_artist_path, {class: 'btn btn-primary withripple' }%>
+</div>

@@ -1,4 +1,10 @@
 class Artist < ActiveRecord::Base
+
+  validates :artist_name, presence: true, uniqueness: true
+  validates :artist_name_japanese, presence: true
+  validates :artist_image_url, presence: true
+  validates :artist_url, presence: true, uniqueness: true
+
   #assosiation
   has_many :favorites
   has_many :users, through: :favorites

@@ -53,6 +53,7 @@ h3 {
 }
 h4,h5,h6 {
   font-size: 1em;
+  text-align: center;
 }
 
 .row {
@@ -785,4 +786,11 @@ footer {
   font-size: 30px;
   color: #FFFFFF;
   background-color: #222222;
+  }
+
+  .name4 {
+  font-size: 20px;
+  color: #FFFFFF;
+  background-color: #222222;
+  word-wrap: break-word;
   }

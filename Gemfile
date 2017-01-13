@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-ruby "2.3.1"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use mysql as the database for Active Record
@@ -56,10 +55,10 @@ end
   gem 'omniauth'
   gem 'omniauth-twitter'
   gem 'omniauth-facebook'
-
-
-group :production do
-  gem 'rails_12factor'
   gem 'pg'
+
+
+group :production, :staging do
+  gem 'rails_12factor'
 end
 

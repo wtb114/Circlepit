@@ -57,7 +57,9 @@ end
   gem 'omniauth-twitter'
   gem 'omniauth-facebook'
 
-group :production, :staging do
+
+group :production do
   gem 'rails_12factor'
+  gem 'pg'
 end
 

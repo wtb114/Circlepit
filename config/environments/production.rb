@@ -77,8 +77,10 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-    config.action_mailer.default_url_options = { host: 'us-cdbr-iron-east-04.cleardb.net', port: 3306 }
-  config.action_mailer.raise_delivery_errors = true
+  config.assets.initialize_on_precompile = false
+
+config.action_mailer.default_url_options = { host: 'us-cdbr-iron-east-04.cleardb.net', port: 3306 }
+  config.action_mailer.raise_delivery_errors = false
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :enable_starttls_auto => true,

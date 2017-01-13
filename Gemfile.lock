@@ -265,7 +265,7 @@ DEPENDENCIES
   omniauth-facebook
   omniauth-twitter
   paperclip
-  pg
+  pg (= 0.19.0)
   pry-rails
   rails (= 4.2.6)
   rails_12factor

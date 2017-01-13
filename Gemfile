@@ -56,7 +56,7 @@ end
   gem 'omniauth'
   gem 'omniauth-twitter'
   gem 'omniauth-facebook'
-  gem 'pg'
+  gem 'pg','0.19.0'
 
 
 group :production do

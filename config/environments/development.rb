@@ -38,7 +38,7 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-  config.action_mailer.default_url_options = { host: 'us-cdbr-iron-east-04.cleardb.net', port: 3306 }
+  config.action_mailer.default_url_options = { host: 'ec2-54-225-127-147.compute-1.amazonaws.com', port: 5432 }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {

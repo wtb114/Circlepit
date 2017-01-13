@@ -1,10 +1,9 @@
 source 'https://rubygems.org'
 
-ruby "2.3.1"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use mysql as the database for Active Record
-gem 'mysql2', '0.3.18'
+gem 'mysql2', '0.3.18', group: :development
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -56,10 +55,8 @@ end
   gem 'omniauth'
   gem 'omniauth-twitter'
   gem 'omniauth-facebook'
-  gem 'pg','0.19.0'
-
 
 group :production do
   gem 'rails_12factor'
+  gem 'pg'
 end
-

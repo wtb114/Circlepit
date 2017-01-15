@@ -13,12 +13,12 @@
   <%= link_to 'ユーザー検索', users_path, {class: 'btn btn-primary withripple' }%>
   <%= link_to 'ツイート検索', tweets_path, {class: 'btn btn-primary withripple' }%>
   <%= link_to 'マイページ', user_path(current_user), {class: 'btn btn-primary withripple' }%>
-  <h2>Pick Up アーティスト</h2>
+<!--   <h2>Pick Up アーティスト</h2>
       <div class="name">
         <%= link_to @artist.artist_name,artist_path(@artist) %><div class="name2">(<%= @artist.artist_name_japanese %>)</div>
       </div>
       <div class="name2">
-      <%= link_to "お気に入りに登録", add_artist_path(@artist), method: :post %>
+      <%= link_to #{}"お気に入りに登録", add_artist_path(@artist), method: :post %>
         </div>
       <div class="content_post" style="background-image: url(<%= @artist.artist_image_url %>);">
       </div>
@@ -30,11 +30,11 @@
       <h2>Pick Up イベント</h2>
       <div class="name">
         <%= link_to @event.event_name,event_path(@event) %>
-        <div class="name2"><%= @event.event_date.strftime("%Y-%m-%d %H:%M:%S") %></div>
+        <div class="name2"><%= @event.event_date.strftime(#{}"%Y-%m-%d %H:%M:%S") %></div>
         <div class="name2"><%= @event.event_location %></div>
       </div>
 
-    </div>
+    </div> -->
 
 
 

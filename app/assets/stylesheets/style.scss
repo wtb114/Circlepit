@@ -39,7 +39,7 @@ body,input,textarea,table,h1,h2,h3,h4,h5,h6 {
   font-weight: bold !important;
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1,h2,h3,h4,h5,h6,h7 {
   font-weight: bold;
 }
 h1 {
@@ -53,6 +53,10 @@ h3 {
 }
 h4,h5,h6 {
   font-size: 1em;
+  text-align: center;
+}
+h7{
+  font-size: 0.8em;
   text-align: center;
 }
 
@@ -790,6 +794,13 @@ footer {
 
   .name4 {
   font-size: 20px;
+  color: #FFFFFF;
+  background-color: #222222;
+  word-wrap: break-word;
+  }
+
+  .name5 {
+  font-size: 15px;
   color: #FFFFFF;
   background-color: #222222;
   word-wrap: break-word;

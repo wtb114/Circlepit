@@ -19,11 +19,11 @@ ja:
       unconfirmed: "ご登録のメールアドレスに承認メールをお送りしました。続ける前に、アカウントの承認をお願いします。"
     mailer:
       confirmation_instructions:
-        subject: "アカウントの登録方法"
+        subject: "Circlepitへようこそ!!"
       reset_password_instructions:
-        subject: "パスワードの再設定"
+        subject: "[Circlepit]パスワードの再設定"
       unlock_instructions:
-        subject: "アカウントのロック解除"
+        subject: "[Circlepit]アカウントのロック解除"
     omniauth_callbacks:
       failure: "%{kind} から承認されませんでした。理由：%{reason}"
       success: "%{kind} から承認されました。"

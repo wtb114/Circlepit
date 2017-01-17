@@ -43,10 +43,10 @@ class User < ActiveRecord::Base
 
 
   has_attached_file :avatar, styles: { medium: "300x300!", thumb: "100x100!>"},
-    :storage => :s3,
-    :s3_permissions => :private,
-    :s3_credentials => "#{Rails.root}/config/s3.yml",
-    :path => ":class/:attachment/:id/:style.:extension"
+    # :storage => :s3,
+    # :s3_permissions => :private,
+    # :s3_credentials => "#{Rails.root}/config/s3.yml",
+    # :path => ":class/:attachment/:id/:style.:extension"
   validates_attachment_content_type :avatar, content_type: ["image/jpg","image/jpeg","image/png"]
 
 

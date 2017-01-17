@@ -10,7 +10,7 @@
       /<%= link_to @artist.artist_name,artist_path(@artist) %>
     <% end %>
     <% unless @event.artist_id2 == nil %>
-        <% @artist_id2 = event.artist_id2 %>
+        <% @artist_id2 = @event.artist_id2 %>
         <% @artist2 = Artist.where(id: @artist_id2).first %>
         /<%= link_to @artist2.artist_name,artist_path(@artist2) %>
        <% end %>

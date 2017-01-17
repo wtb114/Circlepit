@@ -7,7 +7,7 @@ class Event < ActiveRecord::Base
   #association
   has_many :artists
   belongs_to :artist
-  has_many :clips
+  has_many :clips, dependent: :destroy
   has_many :users, through: :clips
   has_many :groups
 end

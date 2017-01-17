@@ -6,7 +6,7 @@ class Artist < ActiveRecord::Base
   validates :artist_url, presence: true, uniqueness: true
 
   #assosiation
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_many :users, through: :favorites
   has_many :events
   has_many :groups

@@ -25,6 +25,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    export AWS_REGION='ap-northeast-1'
     current_user.update(update_params)
   end
 

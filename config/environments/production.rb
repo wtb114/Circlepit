@@ -98,5 +98,17 @@ config.action_mailer.default_url_options = {host: 'https://circlepit2016.herokua
     # :authentication => 'login'
   }
 
+  config.paperclip_defaults = {
+  :storage => :s3,
+  :bucket => ENV['circlepit2016'],
+  :s3_region => ENV['ap-northeast-1'],
+  :s3_host_name => ENV['http://circlepit2016.s3-website-ap-northeast-1.amazonaws.com/'],
+  :s3_credentials => {
+    :access_key_id => ENV['AKIAJC4TTAYKUIIJ65EA'],
+    :secret_access_key => ENV['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']
+  }
+}
+
+
 end
 

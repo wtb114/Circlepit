@@ -55,6 +55,7 @@ end
   gem 'omniauth'
   gem 'omniauth-twitter'
   gem 'omniauth-facebook'
+  gem 'aws-sdk'
 
 group :production do
   gem 'rails_12factor'

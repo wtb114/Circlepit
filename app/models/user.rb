@@ -42,8 +42,9 @@ class User < ActiveRecord::Base
   # end
 
 
-  has_attached_file :avatar, styles: { medium: "300x300!", thumb: "100x100>"}, :default_url => 'missing_:style.png', :storage =>   
-:s3, :bucket => "<my_bucket>"
+  has_attached_file :avatar, styles: { medium: "300x300!", thumb: "100x100>"},:storage => :s3,
+    :s3_credentials => "#{Rails.root}/config/s3.yml",
+    :path => ":attachment/:id/:style.:extension"
   validates_attachment_content_type :avatar, content_type: ["image/jpg","image/jpeg","image/png"]
 
 

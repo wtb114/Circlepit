@@ -45,7 +45,7 @@ group :development do
 end
 
   gem 'devise'
-  gem 'paperclip', :git=> 'https://github.com/thoughtbot/paperclip', :ref => '523bd46c768226893f23889079a7aa9c73b57d68'
+  gem 'paperclip'
   gem 'kaminari'
   gem 'therubyracer'
   gem 'twitter-bootstrap-rails'
@@ -55,7 +55,7 @@ end
   gem 'omniauth'
   gem 'omniauth-twitter'
   gem 'omniauth-facebook'
-  gem 'aws-sdk', '< 2.0'
+  gem 'aws-sdk'
 
 group :production do
   gem 'rails_12factor'

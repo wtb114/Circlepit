@@ -27,7 +27,7 @@
        <% unless event.artist_id == nil %>
         <% @artist_id = event.artist_id %>
         <% @artist = Artist.where(id: @artist_id).first %>
-        出演アーティスト:<%= link_to @artist.artist_name,artist_path(@artist) %>
+        出演アーティスト:/<%= link_to @artist.artist_name,artist_path(@artist) %>
        <% end %>
        <% unless event.artist_id2 == nil %>
         <% @artist_id2 = event.artist_id2 %>

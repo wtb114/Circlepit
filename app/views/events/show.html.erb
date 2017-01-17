@@ -3,9 +3,11 @@
   <div class="name3">
     <%= @event.event_name %>
     <div class="name2">
+    <% unless @event.artist_id == nil %>
       <% @artist_id = @event.artist_id %>
       <% @artist = Artist.where(id: @artist_id).first %>
       出演アーティスト:<%= link_to @artist.artist_name,artist_path(@artist) %>
+    <% end %>
       </div>
     <% if current_user.id == @event.user_id %>
     <div class="name2">

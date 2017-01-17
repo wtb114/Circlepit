@@ -45,7 +45,6 @@ group :development do
 end
 
   gem 'devise'
-  gem 'paperclip'
   gem 'kaminari'
   gem 'therubyracer'
   gem 'twitter-bootstrap-rails'
@@ -55,7 +54,8 @@ end
   gem 'omniauth'
   gem 'omniauth-twitter'
   gem 'omniauth-facebook'
-  gem 'aws-sdk'
+  gem 'paperclip', '~> 4.3'
+  gem 'aws-sdk', '< 2.0'
 
 group :production do
   gem 'rails_12factor'

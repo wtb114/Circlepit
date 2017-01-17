@@ -5,7 +5,7 @@ class Event < ActiveRecord::Base
   validates :event_date, presence: true
 
   #association
-  has_many :artists
+  # has_many :artists
   belongs_to :artist
   has_many :clips, dependent: :destroy
   has_many :users, through: :clips

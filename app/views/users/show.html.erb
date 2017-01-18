@@ -1,7 +1,7 @@
 
 <div class="row form user_profile">
   <div class="col-lg-12">
-    <div class="image" style="background-image: url(<%= @user.avatar.url(:medium) %>);"></div>
+    <div class="image" style="background-image: url(<%= @user.avatar.path(:medium) %>);"></div>
     <h2><%= @user.username %></h2>
     <% if @user.birthday? %>
     <h4><%= @age %>歳</h4>

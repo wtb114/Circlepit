@@ -1,6 +1,7 @@
 class ArtistsController < ApplicationController
 
   def index
+    @count = Artist.all
     @search = Artist.search(params[:q])
     @artists = @search.result.order("updated_at DESC").page(params[:page]).per(20)
 

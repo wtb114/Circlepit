@@ -1,6 +1,7 @@
 <% if user_signed_in? %>
 <div class="row">
   <h2>参加中のイベント</h2>
+  <span class="name4">参加中のイベント数 :<%=@clips.length %></span><br/>
   <%= link_to "イベント検索", events_path, {class: 'btn btn-primary withripple' } %>
     <% @clips.each do |clip| %>
       <% event = Event.find(clip.event_id) %>

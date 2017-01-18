@@ -1,5 +1,6 @@
     <h2>Circlepitは、音楽好きユーザーで創り上げるSNSです！</h2><br/>
-    <% @artist.each do |artist| %>
+
+    <% @artists.each do |artist| %>
     <a href = "/artists"><span><img src="<%= artist.artist_image_url %>", border="0" width="100" height="100"/></span></a>
     <% end %>
     <br/>

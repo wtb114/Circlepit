@@ -1,4 +1,4 @@
-<% if user_signed_in? %>
+
   <div class='navbar navbar-default navbar-fixed-top'>
     <div class='container'>
       <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-responsive-collapse'>
@@ -25,9 +25,11 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">ツイート<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
            <li><h7><%= link_to "ツイート検索", tweets_path %></h7></li>
+           <% if user_signed_in? %>
            <li><h7><%= link_to "フォロー中ツイート", following_tweets_path %></h7></li>
            <li><h7><%= link_to "自分のツイート一覧", show_tweets_path %></h7></li>
            <li><h7><%= link_to "ツイート投稿", new_tweet_path %></h7></li>
+           <% end %>
           </ul>
          </li>
 
@@ -35,7 +37,9 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">イベント<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
            <li><h7><%= link_to "イベント検索", events_path %></h7></li>
+           <% if user_signed_in? %>
            <li><h7><%= link_to "参加中のイベント", clips_path %></h7></li>
+           <% end %>
           </ul>
          </li>
 
@@ -43,15 +47,23 @@
           <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-expanded='false'>アーティスト <span class='caret'></span></a>
           <ul class='dropdown-menu' role='menu'>
            <li><h7><%= link_to "アーティスト検索", artists_path %></h7></li>
+           <% if user_signed_in? %>
            <li><h7><%= link_to "お気に入り一覧", favorites_path %></h7></li>
+           <% end %>
           </ul>
          </li>
 
          <li class='dropdown'>
           <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-expanded='false'>アカウント<span class='caret'></span></a>
           <ul class='dropdown-menu' role='menu'>
+          <% if user_signed_in? %>
            <li><h7><%= link_to "マイページ", user_path(current_user) %></h7></li>
            <li><h7><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></h7></li>
+           <% else %>
+           <li><h7><%= link_to "ログイン", user_session_path %></h7></li>
+           <li><h7><%= link_to "新規ユーザー登録", new_user_registration_path %></h7></li>
+           <li><h7><%= link_to "Facebookで登録", user_facebook_omniauth_authorize_path %></h7></li>
+           <% end %>
           </ul>
          </li>
 
@@ -59,4 +71,3 @@
       </div>
     </div>
   </div>
-<% end %>

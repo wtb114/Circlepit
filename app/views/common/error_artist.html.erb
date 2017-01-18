@@ -1,3 +1,4 @@
+<% if user_signed_in? %>
 <div class="contents row">
       <h2>
         エラーが発生しました。
@@ -11,3 +12,4 @@
       </div>
       <%= link_to '新規アーティスト登録へ戻る', new_artist_path, {class: 'btn btn-primary withripple' }%>
 </div>
+<% end %>

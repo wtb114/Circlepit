@@ -1,3 +1,4 @@
+<% if user_signed_in? %>
 <% if current_user.id == @event.user_id %>
 <div class="contents row">
   <div class="container">
@@ -62,5 +63,5 @@
 <% end %>
   </div>
 </div>
-  <% else %>
-  <% end %>
+<% end %>
+<% end %>

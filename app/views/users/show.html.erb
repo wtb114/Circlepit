@@ -18,12 +18,13 @@
     <% if @user.hometown? %>
     <h4>出身地: <%= @user.hometown %></h4>
     <% end %>
-
+  <% if user_signed_in? %>
     <% if current_user.id == @user.id %>
       <div class="profile_edit">
         <%= link_to 'プロフィール編集', edit_user_path(current_user), {class: 'btn btn-primary withripple' }%>
       </div>
     <% end %>
+  <% end %>
   </div>
   <span id="user_<%= @user.id %>" class="follow-wrapper">
       <%= render 'follow_form', user: @user if signed_in? %>
@@ -57,7 +58,9 @@
       <% end %>
 
   <h2>お気に入りのアーティスト</h2>
+  <% if user_signed_in? %>
   <%= link_to @user.username + 'のお気に入りのアーティスト一覧へ', favorites_path(@user), {class: 'btn btn-primary withripple' }%>
+  <% end %>
     <% @user.artists.each_with_index do |artist,i| %>
           <tr>
             <div class="name3"><%= link_to artist.artist_name,artist_path(artist) %>
@@ -66,7 +69,9 @@
     <% end %>
 <br />
   <h2>参加中のイベント</h2>
+  <% if user_signed_in? %>
   <%= link_to @user.username + 'の参加中のイベント一覧へ', clips_path(@user), {class: 'btn btn-primary withripple' }%>
+  <% end %>
     <% @user.events.each_with_index do |event,i| %>
           <tr>
             <div class="name3"><%= link_to event.event_name,event_path(event) %>

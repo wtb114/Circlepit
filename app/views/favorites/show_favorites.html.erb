@@ -3,6 +3,7 @@
   <div class="name3">
     <%= link_to @artist.artist_name, artist_path(@artist) %></a>
       <br>(<%= @artist.artist_name_japanese %>)
+    <% if user_signed_in? %>
       <div class="name2">
       <%= link_to "お気に入りに登録", add_artist_path(@artist), method: :post %>
       </div>
@@ -16,8 +17,8 @@
       <div class="name2">
       <%= link_to "編集", edit_artist_path, method: :get %>
       </div>
-      <% else %>
       <% end %>
+    <% end %>
   </div>
   <div class="content_post" style="background-image: url(<%= @artist.artist_image_url %>);" >
   </div>

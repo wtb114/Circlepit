@@ -13,8 +13,11 @@
     <%= link_to '検索条件のクリア', request.path %>
     </div>
     <% end %>
+  <% if user_signed_in? %>
   <span class="name2">
-  <%= link_to "新規イベントの登録", new_event_path, {class: 'btn btn-primary withripple' } %></span>
+  <%= link_to "新規イベントの登録", new_event_path, {class: 'btn btn-primary withripple' } %>
+  </span>
+  <% end %>
 
 <div class="contents row" >
     <% @events.each do |event| %>
@@ -82,9 +85,11 @@
       <div class="name2">
       <%= event.event_location %>
       </div>
+      <% if user_signed_in? %>
       <div class="name2">
       <%= link_to "このイベントに参加", add_event_path(event), method: :post %>
       </div>
+      <% end %>
       <br/>
     <% end %>
 <%= paginate(@events) %>

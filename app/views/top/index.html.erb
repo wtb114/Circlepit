@@ -1,11 +1,17 @@
     <h2>Circlepitは、音楽好きユーザーで創り上げるSNSです！</h2><br/>
-<% unless current_user.full_profile? %>
-  <header class="header_top panel panel-default col-lg-12 no-profile">
+    <% @artist.each do |artist| %>
+    <a href = "/artists"><span><img src="<%= artist.artist_image_url %>", border="0" width="100" height="100"/></span></a>
+    <% end %>
+    <br/>
+
+<% if user_signed_in? %>
+  <% unless current_user.full_profile? %>
+    <header class="header_top panel panel-default col-lg-12 no-profile">
     <h2>まずは、あなたの基本プロフィールを登録しましょう！</h2>
 <!--     <h2>Circlepitは、ライブ好きなユーザーが作り上げるコミュニティサイトです！</h2> -->
     <%= link_to "プロフィールを登録する", edit_user_path(current_user), { class: "btn btn-lg btn-primary withripple" } %>
-  </header>
-<% else %>
+    </header>
+  <% else %>
   <div class="contents row" >
 
   <%= link_to 'アーティスト検索', artists_path, {class: 'btn btn-primary withripple' }%>
@@ -13,6 +19,9 @@
   <%= link_to 'ユーザー検索', users_path, {class: 'btn btn-primary withripple' }%>
   <%= link_to 'ツイート検索', tweets_path, {class: 'btn btn-primary withripple' }%>
   <%= link_to 'マイページ', user_path(current_user), {class: 'btn btn-primary withripple' }%>
-
-
   <%end %>
+<% else %>
+  <h2>まずは、Circlepitのユーザーに登録しましょう！</h2>
+  <%= link_to "Circlepitに登録する", new_user_registration_path, { class: "btn btn-lg btn-primary withripple" } %>
+  <%= link_to "FacebookアカウントでCirclepitにログインする", user_facebook_omniauth_authorize_path, { class: "btn btn-lg btn-primary withripple" } %>
+<% end %>

@@ -8,9 +8,11 @@
     <br />
     <%= link_to '検索条件のクリア', request.path %>
     </div>
-    <span class="name2">
-    <%= link_to "新規アーティストの登録", new_artist_path, {class: 'btn btn-primary withripple' } %>
-    </span>
+      <% if user_signed_in? %>
+      <span class="name2">
+      <%= link_to "新規アーティストの登録", new_artist_path, {class: 'btn btn-primary withripple' } %>
+      </span>
+      <% end %>
     <% end %>
     <% @artists.each do |artist| %>
     <% @favorites = Favorite.where(artist_id: artist.id).all %>
@@ -21,9 +23,11 @@
         (<%= artist.artist_name_japanese %>)
         </div>
       </div>
+      <% if user_signed_in? %>
       <div class="name2">
       <%= link_to "お気に入りに登録", add_artist_path(artist), method: :post %>
-        </div>
+      </div>
+      <% end %>
 
       <div class="content_post" style="background-image: url(<%= artist.artist_image_url %>);">
       </div>

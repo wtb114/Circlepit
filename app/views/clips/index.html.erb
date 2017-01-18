@@ -1,3 +1,4 @@
+<% if user_signed_in? %>
 <div class="row">
   <h2>参加中のイベント</h2>
   <%= link_to "イベント検索", events_path, {class: 'btn btn-primary withripple' } %>
@@ -17,3 +18,4 @@
     <% end %>
     <%= paginate(@clips) %>
 </div>
+<% end %>

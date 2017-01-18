@@ -1,4 +1,5 @@
-  <% if current_user.id == @artist.user_id %>
+<% if user_signed_in? %>
+<% if current_user.id == @artist.user_id %>
 <div class="contents row">
     <%= form_tag("/artists/#{@artist.id}", method: :patch) do %>
       <h2>アーティストの編集</h2>
@@ -44,3 +45,4 @@
 </div>
   <% else %>
   <% end %>
+<% end %>

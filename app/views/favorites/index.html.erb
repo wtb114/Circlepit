@@ -1,3 +1,4 @@
+<% if user_signed_in? %>
 <div class="row">
   <h2>お気に入りのアーティスト</h2>
   <%= link_to 'アーティスト検索', artists_path, {class: 'btn btn-primary withripple' }%>
@@ -16,3 +17,4 @@
     <%= paginate(@favorites) %>
 
 </div>
+<% end %>

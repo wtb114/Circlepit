@@ -1,3 +1,4 @@
+<% if user_signed_in? %>
 <h2>自分のツイート一覧</h2>
 <%= link_to 'ツイートを投稿する', new_tweet_path, {class: 'btn btn-primary withripple' }%>
 <%= link_to '自分のコメント一覧', show_comments_path(current_user), {class: 'btn btn-primary withripple' }%>
@@ -19,3 +20,4 @@
 <% end %>
   <%= paginate(@tweets) %>
 </div>
+<% end %>

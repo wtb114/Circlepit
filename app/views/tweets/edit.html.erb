@@ -1,3 +1,4 @@
+<% if user_signed_in? %>
   <div class="contents row">
     <%= form_tag("/tweets/#{@tweet.id}", method: :patch ) do %>
       <h2>
@@ -8,3 +9,4 @@
       <input type="submit" value="変更する">
     <% end %>
   </div>
+<% end %>

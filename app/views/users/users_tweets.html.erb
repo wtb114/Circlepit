@@ -1,5 +1,7 @@
 <h2><%= @user.username %>のツイート一覧</h2>
+<% if user_signed_in? %>
 <%= link_to 'ツイートを投稿する', new_tweet_path, {class: 'btn btn-primary withripple' }%>
+<% end %>
 <%= link_to @user.username + 'のコメント一覧', users_comments_user_path(@user), {class: 'btn btn-primary withripple' }%>
 <% @tweets.each do |tweet| %>
     <div class="contents row" >

@@ -1,3 +1,4 @@
+<% if user_signed_in? %>
 <h2>フォロー中のツイート</h2>
 <% @users.each do |user| %>
   <% @tweets = Tweet.where(user_id: user.id).limit(1).order("created_at DESC") %>
@@ -12,3 +13,4 @@
 <% end %>
   <%= paginate(@users) %>
 </div>
+<% end %>

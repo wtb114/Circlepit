@@ -4,7 +4,7 @@ devise_for :users, :controllers => {
   :sessions      => "users/sessions",
   :registrations => "users/registrations",
   :passwords     => "users/passwords",
-  :omniauth_callbacks => "users/omniauth_callbacks" 
+  :omniauth_callbacks => "users/omniauth_callbacks"
 }
 
   root to: "top#index"

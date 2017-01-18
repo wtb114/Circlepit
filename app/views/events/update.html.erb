@@ -1,3 +1,4 @@
+<% if user_signed_in? %>
   <div class="contents row">
     <div class="success">
       <h2>
@@ -6,3 +7,4 @@
       <%= link_to 'イベント一覧へ戻る', events_path, {class: 'btn btn-primary withripple' }%>
     </div>
   </div>
+<% end %>

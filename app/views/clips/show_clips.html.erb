@@ -6,6 +6,7 @@
       <% @artist = Artist.where(id: @artist_id).first %>
       出演アーティスト:<%= link_to @artist.artist_name,artist_path(@artist) %>
       </div>
+    <% if user_signed_in? %>
     <% if current_user.id == @event.user_id %>
     <div class="name2">
     <%= link_to "このイベントを削除", "/events/#{@event.id}", method: :delete %>
@@ -13,13 +14,15 @@
     <div class="name2">
     <%= link_to "編集", edit_event_path, method: :get %>
     </div>
-    <% else %>
+    <% end %>
     <% end %>
     <%= @event.event_date.strftime("%Y-%m-%d %H:%M:%S") %>
     <p><%= @event.event_location %></p>
+    <% if user_signed_in? %>
     <div class="name2">
     <%= link_to "このイベントに参加", add_event_path(@event), method: :post %>
     </div>
+    <% end %>
   </div>
 
   <h2>ユーザー一覧&nbsp;&nbsp;(<%= @clips.length %>人)</h2>

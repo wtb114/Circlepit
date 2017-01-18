@@ -1,4 +1,5 @@
-<div>
+<% if user_signed_in? %>
+<div class="contents row">
 <%= form_tag('/events', method: :post) do %>
   <h2>新規イベントの追加</h2>
   <ul style="list-style:none;">
@@ -60,3 +61,4 @@
   </ul>
 <% end %>
 </div>
+<% end %>

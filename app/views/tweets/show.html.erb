@@ -1,8 +1,8 @@
-
 <h2>投稿</h2>
 <div class="contents row" >
       <div class="name3">投稿者:<%= link_to @tweet.user.username, user_path(@tweet.user), method: :get %></div>
       <div class="name2">投稿日時:<%= @tweet.created_at.strftime("%Y-%m-%d %H:%M:%S") %></div>
+    <% if user_signed_in? %>
       <% if user_signed_in? && current_user.id == @tweet.user_id %>
       <div class="name2">
        <%= link_to '編集', edit_tweet_path(@tweet), method: :get %>
@@ -11,6 +11,7 @@
        <%= link_to '削除', "/tweets/#{@tweet.id}", method: :delete %>
       </div>
       <% end %>
+    <% end %>
       <div class="name3"><%= simple_format(@tweet.text) %></div>
 </div>
 
@@ -20,11 +21,13 @@
         <% @comments.each do |comment| %>
         <div class="name2">投稿者:<%= link_to comment.user.username, "/users/#{comment.user_id}" %>&nbsp;&nbsp;投稿日時:<%= comment.created_at.strftime("%Y-%m-%d %H:%M:%S") %></div>
         <div class="name2"><%= comment.text %></div>
+         <% if user_signed_in? %>
           <% if comment.user_id == current_user.id %>
           <div class="name2">
           <%= link_to '削除', "/tweets/#{comment.tweet_id}/comments/#{comment.id}", method: :delete %>
           </div>
           <% end %>
+         <% end %>
         <% end %>
       <% end %>
 <br/>

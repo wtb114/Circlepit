@@ -42,12 +42,12 @@ class User < ActiveRecord::Base
   # end
 
   if Rails.env.production?
-    S3_CREDENTIALS={access_key_id: "AKIAIPWFNIFHC4R2CZAQ", secret_access_key: "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", bucket:"circlepit2016"}
+    S3_CREDENTIALS={access_key_id: "AKIAIPWFNIFHC4R2CZAQ", secret_access_key: "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", bucket:"circlepit2016", s3_host_name: "s3-ap-northeast-1.amazonaws.com"}
   end
 
   if Rails.env.production?
   has_attached_file :avatar, storage: :s3, s3_credentials: S3_CREDENTIALS,
-  styles: { medium: "300x300!", thumb: "100x100!>"}, url:"s3-ap-northeast-1.amazonaws.com",path:":attachment/:id/:style.:extension"
+  styles: { medium: "300x300!", thumb: "100x100!>"}, path:":attachment/:id/:style.:extension"
   else
     has_attached_file :avatar, styles: { medium: "300x300!", thumb: "100x100!>"}
   end

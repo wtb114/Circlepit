@@ -49,7 +49,7 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, storage: :s3, s3_credentials: S3_CREDENTIALS,
   styles: { medium: "300x300!", thumb: "100x100!>"}, url:"s3-ap-northeast-1.amazonaws.com",path:":attachment/:id/:style.:extension"
   else
-    has_attached_file :avatar, styles: { medium: "300x300!", thumb: "100x100!>"}, url:"/:id/:style.:extension"
+    has_attached_file :avatar, styles: { medium: "300x300!", thumb: "100x100!>"}
   end
 
   validates_attachment_content_type :avatar, content_type: ["image/jpg","image/jpeg","image/png"]

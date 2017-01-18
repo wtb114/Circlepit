@@ -41,12 +41,16 @@ class User < ActiveRecord::Base
   #   User.create_unique_string + "@example.com"
   # end
 
+  if Rails.env.production?
+    S3_CREDENTIALS={access_key_id:ENV['AKIAIPWFNIFHC4R2CZAQ'], secret_access_key:ENV['/5R2oPietsskxdvTYrZeSOqEsvD82CW62dRCjIEt'], bucket:"circlepit2016"}
+  end
 
-  has_attached_file :avatar, styles: { medium: "300x300!", thumb: "100x100!>"},
-  :storage => :s3,
-  :s3_permissions => :private,
-  :s3_credentials => "#{Rails.root}/config/s3.yml",
-  :path => ":attachment/:id/:style.:extension"
+  if Rails.env.production?
+  has_attached_file :avatar, storage: :s3, s3_credentials: S3_CREDENTIALS,
+  styles: { medium: "300x300!", thumb: "100x100!>"}, url:"s3-ap-northeast-1.amazonaws.com",path:":attachment/:id/:style.:extension"
+  else
+    has_attached_file :avatar, styles: { medium: "300x300!", thumb: "100x100!>"}
+  end
 
   validates_attachment_content_type :avatar, content_type: ["image/jpg","image/jpeg","image/png"]
 

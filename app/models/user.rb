@@ -52,7 +52,7 @@ class User < ActiveRecord::Base
     has_attached_file :avatar, styles: { medium: "300x300!", thumb: "100x100!>"}
   end
 
-  validates_attachment_content_type :avatar, content_type: ["image/jpg","image/jpeg","image/png"]
+  validates_attachment_content_type :avatar, content_type: ["image/jpg","image/jpeg","image/png","image/gif"],message: 'ファイル形式が不正です。ipg,jpeg,png,gifのいずれかのファイルで再度お試しください。'
 
 
   def name

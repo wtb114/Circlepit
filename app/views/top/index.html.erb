@@ -24,7 +24,10 @@
   </div>
   <%end %>
 <% else %>
-  <h2>まずは、Circlepitのユーザーに登録しましょう！</h2>
-  <%= link_to "Circlepitに登録する", new_user_registration_path, { class: "btn btn-lg btn-primary withripple" } %>
+  <h2>まずは、Circlepitにログインしましょう！</h2>
+  <div class="name6">
+  <%= link_to "Circlepitにログイン", user_session_path, { class: "btn btn-lg btn-primary withripple" } %><br/>
+  <%= link_to "Circlepitに新規登録", new_user_registration_path, { class: "btn btn-lg btn-primary withripple" } %><br/>
   <%= link_to "Facebookでログイン", user_facebook_omniauth_authorize_path, { class: "btn btn-lg btn-primary withripple" } %>
+  </div>
 <% end %>

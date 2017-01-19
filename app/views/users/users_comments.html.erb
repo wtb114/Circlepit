@@ -1,9 +1,11 @@
-<h2><%= @user.username %>のコメント一覧</h2>
+<h2><%= link_to @user.username,user_path(@user)%>のコメント一覧</h2>
+<%= link_to 'ツイート一覧', users_tweets_user_path(@user), {class: 'btn btn-primary withripple' }%>
 <% if @comments %>
         <% @comments.each do |comment| %>
-        <div class="name2">投稿日時:<%= comment.created_at.strftime("%Y-%m-%d %H:%M:%S") %></div>
+        <div class="name2"><%= comment.created_at.strftime("%Y-%m-%d %H:%M:%S") %></div>
         <div class="name2"><%= comment.text %></div>
         <div class="name2"><%= link_to '詳細', tweet_path(comment.tweet_id), method: :get %></div>
+        <br/>
         <% end %>
       <% end %>
   <%= paginate(@comments) %>

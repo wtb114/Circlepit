@@ -2,7 +2,7 @@ class TweetsController < ApplicationController
   def index
     @user = current_user
     @search = Tweet.search(params[:q])
-    @tweets = @search.result.includes(:user).order("created_at DESC").page(params[:page]).per(20)
+    @tweets = @search.result.includes(:user).order("created_at DESC").page(params[:page]).per(10)
   end
 
   def new

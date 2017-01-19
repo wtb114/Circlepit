@@ -34,26 +34,23 @@
   </h4>
   <br/>
   <h4>★★★★ひとことプロフィール★★★★</h4>
-  <div class = "name4"><%= simple_format(@user.comment) %></div>
+  <div class = "name2"><%= simple_format(@user.comment) %></div>
 </div>
 <br/>
 
 
   <h2>ツイート一覧</h2>
+  <% if @user.id == current_user.id %>
+  <%= link_to '自分のツイート一覧へ', users_tweets_user_path, {class: 'btn btn-primary withripple' }%>
+  <%= link_to '自分のコメント一覧', show_comments_path(current_user), {class: 'btn btn-primary withripple' }%>
+  <% else %>
   <%= link_to @user.username + 'のツイート一覧へ', users_tweets_user_path, {class: 'btn btn-primary withripple' }%>
+  <% end %>
       <% @tweets.each do |tweet| %>
       <Tr>
-      <div class="name2">投稿日時:<%= tweet.created_at.strftime("%Y-%m-%d %H:%M:%S") %></div>
+      <div class="name2"><%= tweet.created_at.strftime("%Y-%m-%d %H:%M:%S") %></div>
       <div class="name2"><%= link_to '詳細', tweet_path(tweet), method: :get %></div>
-      <% if user_signed_in? && current_user.id == tweet.user_id %>
-      <div class="name2">
-       <%= link_to '編集', edit_tweet_path(tweet), method: :get %>
-      </div>
-      <div class="name2">
-       <%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %>
-      </div>
-      <% end %>
-      <div class="name3"><%= simple_format(tweet.text) %></div>
+      <div class="name2"><%= simple_format(tweet.text) %></div>
     </Tr>
       <% end %>
 

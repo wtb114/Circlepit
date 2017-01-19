@@ -2,7 +2,7 @@ class EventsController < ApplicationController
 
   def index
     @search = Event.search(params[:q])
-    @events = @search.result.order("event_date ASC").page(params[:page]).per(20)
+    @events = @search.result.order("event_date ASC").page(params[:page]).per(10)
 
     respond_to do |format|
       format.html

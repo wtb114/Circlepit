@@ -4,7 +4,7 @@
   <% @tweets = Tweet.where(user_id: user.id).limit(1).order("created_at DESC") %>
   <% @tweets.each do |tweet| %>
     <div class="contents row" >
-      <div class="name4"><img src="<%= tweet.user.avatar.url(:thumb) %>"><%= link_to user.username, user_path(user), method: :get %>&nbsp;&nbsp;<br/><%= link_to user.username + 'のツイート一覧へ', users_tweets_user_path(user), {class: 'btn btn-primary withripple' }%></div>
+      <div class="name4"><img src="<%= tweet.user.avatar.url(:thumb) %>"><%= link_to user.username, user_path(user), method: :get %>&nbsp;&nbsp;<br/><%= link_to 'ツイート一覧へ', users_tweets_user_path(user), {class: 'btn btn-primary withripple' }%></div>
       <div class="name2"><%= tweet.created_at.strftime("%Y-%m-%d %H:%M:%S") %></div>
       <div class="name2"><%= link_to '詳細', tweet_path(tweet), method: :get %></div>
       <div class="name4"><%= simple_format(tweet.text) %></div>

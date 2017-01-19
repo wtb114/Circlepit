@@ -5,7 +5,8 @@
     <%= search_form_for @search do |f| %>
     <%= f.label :artist_name_or_artist_name_japanese_cont, '🔎' %>
     <%= f.text_field :artist_name_or_artist_name_japanese_cont %>
-    <%= f.submit 'SEARCH' %>
+    <%= f.submit '検索' %>
+    <span class = "name2">※アーティスト名から検索いただけます。</span>
     <br />
     <%= link_to '検索条件のクリア', request.path %>
     </div>

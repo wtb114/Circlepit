@@ -3,12 +3,15 @@
     <%= search_form_for @search do |f| %>
     <%= f.label :event_name_or_event_location_cont, '🔎' %>
     <%= f.text_field :event_name_or_event_location_cont %>
-    <%= f.submit 'SEARCH' %>&nbsp;&nbsp;<%= link_to ">>アーティストから検索", artists_path %>
+    <%= f.submit '検索' %>&nbsp;&nbsp;<%= link_to ">>アーティストから検索", artists_path %>
     <br />
+    <span class = "name2">※イベント名、開催場所から検索いただけます。</span>
+    <br/>
     <%= f.label :event_date, '🔎' %>
     <%= f.date_select :event_date_gteq, :default => Time.now - 1.month %>〜
     <%= f.date_select :event_date_lteq, :default => Time.now + 1.year %>
-    <%= f.submit 'SEARCH' %>
+    <%= f.submit '検索' %>
+    <span class = "name2">※開催日時から検索いただけます。</span>
     <br />
     <%= link_to '検索条件のクリア', request.path %>
     </div>

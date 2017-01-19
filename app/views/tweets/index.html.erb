@@ -3,7 +3,8 @@
     <%= search_form_for @search do |f| %>
     <%= f.label :text_cont, '🔎' %>
     <%= f.text_field :text_cont %>
-    <%= f.submit 'SEARCH' %>&nbsp;&nbsp;<%= link_to ">>ユーザーから検索", users_path %>
+    <%= f.submit '検索' %>&nbsp;&nbsp;<%= link_to ">>ユーザーから検索", users_path %>
+    <span class = "name2">※キーワードから検索いただけます。</span>
     <br />
     <%= link_to '検索条件のクリア', request.path %>
     </div>

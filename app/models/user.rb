@@ -54,8 +54,6 @@ class User < ActiveRecord::Base
 
   validates_attachment_content_type :avatar, content_type: ["image/jpg","image/jpeg","image/png","image/gif"],message: 'ファイル形式が不正です。ipg,jpeg,png,gifのいずれかのファイルで再度お試しください。'
 
-  validates :username, length: { minimum: 2, maximum: 15 }
-
 
   def name
     "#{family_name} #{first_name}"

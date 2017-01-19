@@ -14,12 +14,13 @@
     </header>
   <% else %>
   <div class="contents row" >
-
-  <%= link_to 'アーティスト検索', artists_path, {class: 'btn btn-primary withripple' }%>
-  <%= link_to 'イベント検索', events_path, {class: 'btn btn-primary withripple' }%>
-  <%= link_to 'ユーザー検索', users_path, {class: 'btn btn-primary withripple' }%>
-  <%= link_to 'ツイート検索', tweets_path, {class: 'btn btn-primary withripple' }%>
-  <%= link_to 'マイページ', user_path(current_user), {class: 'btn btn-primary withripple' }%>
+<div class="name6">
+  <%= link_to 'アーティスト検索', artists_path, {class: 'btn btn-primary withripple' }%><br/>
+  <%= link_to '　イベント検索　', events_path, {class: 'btn btn-primary withripple' }%><br/>
+  <%= link_to '　ユーザー検索　', users_path, {class: 'btn btn-primary withripple' }%><br/>
+  <%= link_to '　ツイート検索　', tweets_path, {class: 'btn btn-primary withripple' }%><br/>
+  <%= link_to '　マイページ　　', user_path(current_user), {class: 'btn btn-primary withripple' }%><br/>
+  </div>
   <%end %>
 <% else %>
   <h2>まずは、Circlepitのユーザーに登録しましょう！</h2>

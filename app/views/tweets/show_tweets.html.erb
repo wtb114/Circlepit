@@ -8,6 +8,14 @@
       <div class="name2"><%= link_to '詳細', tweet_path(tweet), method: :get %></div>
       <div class="name4"><%= simple_format(tweet.text) %></div>
     </div>
+    <br/>
+
+<script type="text/javascript">
+var nend_params = {"media":43808,"site":243648,"spot":701028,"type":1,"oriented":1};
+</script>
+<script type="text/javascript" src="https://js1.nend.net/js/nendAdLoader.js"></script>
+<br/>
+
 <% end %>
   <%= paginate(@tweets) %>
 </div>

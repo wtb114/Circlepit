@@ -1,6 +1,6 @@
 <div class="contents row" >
 <h2>イベントの詳細&nbsp;&nbsp;(参加者数:<%= @clips.length %>人)</h2>
-  <div class="name3">
+  <div class="name4">
     <%= @event.event_name %>
     <div class="name2">
     出演アーティスト:
@@ -71,6 +71,13 @@
     </div>
   <% end %>
   </div>
+  <br/>
+
+    <script type="text/javascript">
+var nend_params = {"media":43808,"site":243648,"spot":702492,"type":1,"oriented":1};
+</script>
+<script type="text/javascript" src="https://js1.nend.net/js/nendAdLoader.js"></script>
+<br/>
 
   <h2><%= @clips.length %>人のユーザーがこのイベントに参加</h2>
   <%= link_to "参加中のユーザー一覧", "/events/#{@event.id}/show_clips", {class: 'btn btn-primary withripple' } %>

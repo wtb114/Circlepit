@@ -1,5 +1,5 @@
 <h2>イベント参加中のユーザー&nbsp;&nbsp;<%= @clips.length %>人</h2>
-  <div class="name3">
+  <div class="name4">
     <%= link_to @event.event_name, event_path(@event) %>
     <div class="name2">
       <% @artist_id = @event.artist_id %>
@@ -24,6 +24,13 @@
     </div>
     <% end %>
   </div>
+  <br/>
+
+    <script type="text/javascript">
+var nend_params = {"media":43808,"site":243648,"spot":701028,"type":1,"oriented":1};
+</script>
+<script type="text/javascript" src="https://js1.nend.net/js/nendAdLoader.js"></script>
+<br/>
 
   <h2>ユーザー一覧&nbsp;&nbsp;(<%= @clips.length %>人)</h2>
 

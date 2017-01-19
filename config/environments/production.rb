@@ -109,6 +109,8 @@ config.action_mailer.default_url_options = {host: 'https://circlepit2016.herokua
 #   }
 # }
 
+GA.tracker = "UA-90565061-1"
+
 
 end
 

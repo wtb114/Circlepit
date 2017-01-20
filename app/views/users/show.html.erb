@@ -59,7 +59,7 @@ var nend_params = {"media":43808,"site":243648,"spot":702492,"type":1,"oriented"
     <%= link_to '全て見る', users_favorites_user_path(@user), {class: 'btn btn-primary withripple' }%>
     <% @user.artists.each_with_index do |artist,i| %>
           <tr>
-            <div class="name3"><%= link_to artist.artist_name,artist_path(artist) %>
+            <div class="name2"><%= link_to artist.artist_name,artist_path(artist) %>
             </div>
           </tr>
     <% end %>
@@ -68,7 +68,7 @@ var nend_params = {"media":43808,"site":243648,"spot":702492,"type":1,"oriented"
   <%= link_to '全て見る', users_clips_user_path(@user), {class: 'btn btn-primary withripple' }%>
     <% @user.events.each_with_index do |event,i| %>
           <tr>
-            <div class="name3"><%= link_to event.event_name,event_path(event) %>
+            <div class="name2"><%= link_to event.event_name,event_path(event) %>
               <div class="name2">
             <%= event.event_date.strftime("%Y-%m-%d %H:%M:%S") %>
             </div>

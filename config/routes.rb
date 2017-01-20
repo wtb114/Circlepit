@@ -37,4 +37,7 @@ devise_for :users, :controllers => {
   resources :tweets do
     resources :comments, only: [:create, :destroy]
   end
+  get 'inquiry' => 'inquiry#index'
+  post 'inquiry/confirm' => 'inquiry#confirm'
+  post 'inquiry/thanks' => 'inquiry#thanks'
 end

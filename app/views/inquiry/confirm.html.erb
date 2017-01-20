@@ -1,0 +1,29 @@
+<div class="page-header">
+  <h2>お問い合わせ</h2>
+</div>
+
+<%= form_for @inquiry, :url => inquiry_thanks_path do |f| %>
+  <table class="table">
+    <tr>
+      <div class= "name2">名前:</div>
+        <%= f.hidden_field :name %>
+        <div class= "name2"><%= @inquiry.name %></div>
+    </tr>
+    <br>
+    <tr>
+      <div class= "name2">メールアドレス:</div>
+        <%= f.hidden_field :email %>
+        <div class= "name2"><%= @inquiry.email %></div>
+    </tr>
+    <br/>
+    <tr>
+      <div class= "name2">お問い合わせ内容:</div>
+        <%= f.hidden_field :message %>
+        <div class= "name2"><%= simple_format(@inquiry.message) %></div>
+    </tr>
+  </table>
+  <%= f.submit '送信', :class => 'btn btn-primary' %>
+<% end %>
+
+  <div class="name2" div>エラーが発生する場合は下記のEmailに直接お問い合わせください。</div>
+<div class="name2">Email: <a href="mailto:circlepit.app.info@gmail.com">circlepit.app.info@gmail.com</a></div>

@@ -12,6 +12,7 @@
     <%= link_to '検索条件のクリア', request.path %>
     </div>
       <% if user_signed_in? %>
+      <span class = "name2">お目当てのアーティストが見つかりませんか?</span><br/>
       <%= link_to "新規アーティストの登録", new_artist_path, {class: 'btn btn-primary withripple' } %>
       <% end %>
     <% end %>

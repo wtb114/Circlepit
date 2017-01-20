@@ -52,16 +52,6 @@ class UsersController < ApplicationController
     @comments = Comment.where(user_id: @user.id).all.order("created_at DESC").page(params[:page]).per(20)
   end
 
-  def users_favorites
-    @user = User.find(params[:id])
-    @favorites = Favorite.where(user_id: @user.id).order("created_at DESC").page(params[:page]).per(20)
-  end
-
-  def users_clips
-    @user = User.find(params[:id])
-    @clips = Clip.where(user_id: @user.id).order("created_at DESC").page(params[:page]).per(20)
-  end
-
   private
   def update_params
     params.require(:user).permit(:family_name, :first_name, :family_name_kana, :first_name_kana, :avatar, :username, :gender, :location, :hometown, :birthday, :comment)

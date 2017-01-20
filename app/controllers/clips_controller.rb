@@ -31,4 +31,9 @@ class ClipsController < ApplicationController
     @clips = Clip.where(event_id: @event.id).all.order("created_at DESC").page(params[:page]).per(20)
   end
 
+  def users_clips
+    @user = User.find(params[:id])
+    @clips = Clip.where(user_id: @user.id).order("created_at DESC").page(params[:page]).per(20)
+  end
+
 end

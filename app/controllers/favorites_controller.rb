@@ -31,4 +31,10 @@ class FavoritesController < ApplicationController
     @favorites = Favorite.where(artist_id: @artist.id).all.order("created_at DESC").page(params[:page]).per(20)
   end
 
+  def users_favorites
+    @user = User.find(params[:id])
+    @favorites = Favorite.where(user_id: @user.id).order("created_at DESC").page(params[:page]).per(20)
+  end
+
+
 end

@@ -10,7 +10,9 @@ devise_for :users, :controllers => {
   root to: "top#index"
   resources :users do
     member do
-      get :following, :followers, :users_tweets, :users_comments, :users_favorites, :users_clips
+      get :following, :followers, :users_tweets, :users_comments
+      get "users_favorites" => "favorites#users_favorites"
+      get "users_clips" => "clips#users_clips"
     end
   end
   resources :relationships, only: [:create, :destroy]

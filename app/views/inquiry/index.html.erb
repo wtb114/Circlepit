@@ -23,7 +23,7 @@
       <%= f.text_field :email, value: current_user.email, size: 50  %>
     <% else %>
       <div class= "name2">メールアドレス（必須）</div>
-      <%= f.text_field :email %>
+      <%= f.text_field :email, size: 50 %>
     <% end %>
       <div class= "name2">お問い合わせ内容</div>
       <%= f.text_area :message, size: "49x10"  %>

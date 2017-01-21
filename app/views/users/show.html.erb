@@ -66,7 +66,7 @@ var nend_params = {"media":43808,"site":243648,"spot":702492,"type":1,"oriented"
     <% end %>
 <br />
 
-  <h2>参加中のイベント : <%=@clips_count.length %>件<</h2>
+  <h2>参加中のイベント : <%=@clips_count.length %>件</h2>
   <%= link_to '全て見る', users_clips_user_path(@user), {class: 'btn btn-primary withripple' }%>
     <% @clips.each do |clip| %>
       <% event = Event.find(clip.event_id) %>

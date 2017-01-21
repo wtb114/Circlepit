@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def index
     @search = User.search(params[:q])
-    @users = @search.result.order("created_at DESC").page(params[:page]).per(20)
+    @users = @search.result.order("RANDOM()").page(params[:page]).per(20)
 
     respond_to do |format|
       format.html
@@ -19,6 +19,8 @@ class UsersController < ApplicationController
     @favorites = Favorite.where(user_id: @user.id).limit(10).order("created_at DESC")
     @clips = Clip.where(user_id: @user.id).limit(10).order("created_at DESC")
     @tweets = Tweet.where(user_id: @user.id).limit(5).order("created_at DESC")
+    @favorites_count = Favorite.where(user_id: @user.id).all
+    @clips_count = Clip.where(user_id: @user.id).all
   end
 
   def edit

@@ -23,16 +23,19 @@ class FavoritesController < ApplicationController
 
   def index
     @user = current_user
+    @count = Favorite.where(user_id: @user.id).all
     @favorites = Favorite.where(user_id: @user.id).order("created_at DESC").page(params[:page]).per(20)
   end
 
   def show_favorites
     @artist = Artist.find(params[:id])
+    @count = Favorite.where(artist_id: @artist.id).all
     @favorites = Favorite.where(artist_id: @artist.id).all.order("created_at DESC").page(params[:page]).per(20)
   end
 
   def users_favorites
     @user = User.find(params[:id])
+    @count = Favorite.where(user_id: @user.id).all
     @favorites = Favorite.where(user_id: @user.id).order("created_at DESC").page(params[:page]).per(20)
   end
 

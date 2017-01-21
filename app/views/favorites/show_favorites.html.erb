@@ -1,4 +1,4 @@
-  <h2>お気に入り登録したユーザー&nbsp;&nbsp;<%= @favorites.length %>人</h2>
+  <h2>お気に入り登録したユーザー&nbsp;&nbsp;<%= @count.length %>人</h2>
 
   <div class="name4">
     <%= link_to @artist.artist_name, artist_path(@artist) %></a>
@@ -33,7 +33,7 @@ var nend_params = {"media":43808,"site":243648,"spot":702492,"type":1,"oriented"
 <script type="text/javascript" src="https://js1.nend.net/js/nendAdLoader.js"></script>
 <br/>
 
-  <h2>ユーザー一覧&nbsp;&nbsp;(<%= @favorites.length %>人)</h2>
+  <h2>ユーザー一覧&nbsp;&nbsp;(<%= @count.length %>人)</h2>
 
     <% @favorites.each do |favorite| %>
       <% @user_id = favorite.user_id %>

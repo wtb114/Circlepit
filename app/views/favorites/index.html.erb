@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
 <div class="row">
   <h2>お気に入りのアーティスト</h2>
-  <span class="name4">お気に入りのアーティスト数 :<%=@favorites.length %>組</span><br/>
+  <span class="name4">お気に入りのアーティスト数 :<%=@count.length %>組</span><br/>
   <%= link_to 'アーティスト検索', artists_path, {class: 'btn btn-primary withripple' }%>
     <% @favorites.each do |favorite| %>
       <% artist = Artist.find(favorite.artist_id) %>

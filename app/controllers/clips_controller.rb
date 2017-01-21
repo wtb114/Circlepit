@@ -23,16 +23,19 @@ class ClipsController < ApplicationController
 
   def index
     @user = current_user
+    @count = Clip.where(user_id: @user.id).all
     @clips = Clip.where(user_id: @user.id).all.order("created_at DESC").page(params[:page]).per(20)
   end
 
   def show_clips
     @event = Event.find(params[:id])
+    @count = Clip.where(event_id: @event.id).all
     @clips = Clip.where(event_id: @event.id).all.order("created_at DESC").page(params[:page]).per(20)
   end
 
   def users_clips
     @user = User.find(params[:id])
+    @count = Clip.where(user_id: @user.id).all
     @clips = Clip.where(user_id: @user.id).order("created_at DESC").page(params[:page]).per(20)
   end
 

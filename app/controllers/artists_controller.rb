@@ -3,7 +3,7 @@ class ArtistsController < ApplicationController
   def index
     @count = Artist.all
     @search = Artist.search(params[:q])
-    @artists = @search.result.order("updated_at DESC").page(params[:page]).per(10)
+    @artists = @search.result.order("RANDOM()").page(params[:page]).per(10)
 
     respond_to do |format|
       format.html

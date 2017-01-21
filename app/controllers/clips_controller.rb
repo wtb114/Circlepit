@@ -30,7 +30,7 @@ class ClipsController < ApplicationController
   def show_clips
     @event = Event.find(params[:id])
     @count = Clip.where(event_id: @event.id).all
-    @clips = Clip.where(event_id: @event.id).all.order("created_at DESC").page(params[:page]).per(20)
+    @clips = Clip.where(event_id: @event.id).all.order("RANDOM()").page(params[:page]).per(20)
   end
 
   def users_clips

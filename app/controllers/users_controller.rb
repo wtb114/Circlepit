@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     date_format = "%Y%m%d"
     @age = (Date.today.strftime(date_format).to_i - @user.birthday.strftime(date_format).to_i) / 10000
     end
-    @favorites = Favorite.where(user_id: @user.id).limit(10).order("created_at DESC")
+    @favorites = Favorite.where(user_id: @user.id).limit(10).order("RANDOM()")
     @clips = Clip.where(user_id: @user.id).limit(10).order("created_at DESC")
     @tweets = Tweet.where(user_id: @user.id).limit(5).order("created_at DESC")
     @favorites_count = Favorite.where(user_id: @user.id).all

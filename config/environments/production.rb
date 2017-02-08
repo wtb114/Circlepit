@@ -82,34 +82,18 @@ config.action_mailer.default_url_options = {host: 'https://circlepit2016.herokua
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      :user_name => "app62099904@heroku.com",
-      :password => "1xynnsmc6247",
+      :user_name => "",
+      :password => "",
       :domain => "heroku.com",
       :address => "smtp.sendgrid.net",
       :port => 587,
       :authentication => :plain,
       :enable_starttls_auto => true
-    # :enable_starttls_auto => true,
-    # :address => "smtp.gmail.com",
-    # :port => 587,
-    # :domain => 'smtp.gmail.com',
-    # :user_name => "circlepit.app.info@gmail.com", #ご自身のgmailアドレス
-    # :password => "ken@0114", #ご自身のgmailアドレスのパスワード
-    # :authentication => 'login'
+
   }
 
-# config.paperclip_defaults = {
-#   :storage => :s3,
-#   :bucket => ENV['AMAZON_S3_BUCKET_NAME'],
-#   :s3_region => ENV['AMAZON_S3_REGION'],
-#   :s3_host_name => ENV['AMAZON_S3_HOST_NAME'],
-#   :s3_credentials => {
-#     :access_key_id => ENV['AMAZON_ACCESS_KEY_ID'],
-#     :secret_access_key => ENV['AMAZON_SECRET_ACCESS_KEY']
-#   }
-# }
 
-GA.tracker = "UA-90565061-1"
+GA.tracker = ""
 
 
 end

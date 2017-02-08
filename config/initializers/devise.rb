@@ -274,11 +274,11 @@ Devise.setup do |config|
 
 
   if Rails.env.production?
-    config.omniauth :facebook, "162744460876867", "5656c4a2ca63c304605ebc14033104bd"
-    # config.omniauth :twitter,  "Pc0WzAQiE9sw2oolKB8C5wgPG", "W2aE8OonDKEjk1dVvlZtulS0muWsxnkLH9DcRZKYFXdVPfetvI"
+    config.omniauth :facebook, "", ""
+    # config.omniauth :twitter,  "", ""
   else
     config.omniauth :facebook, "162744460876867", "5656c4a2ca63c304605ebc14033104bd"
-    # config.omniauth :twitter,  "Pc0WzAQiE9sw2oolKB8C5wgPG", "W2aE8OonDKEjk1dVvlZtulS0muWsxnkLH9DcRZKYFXdVPfetvI"
+    # config.omniauth :twitter,  "", ""
   end
 
 end

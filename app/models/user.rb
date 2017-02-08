@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
   # end
 
   if Rails.env.production?
-    S3_CREDENTIALS={access_key_id: "AKIAIPWFNIFHC4R2CZAQ", secret_access_key: "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", bucket:"circlepit2016", s3_host_name: "s3-ap-northeast-1.amazonaws.com"}
+    S3_CREDENTIALS={access_key_id: "", secret_access_key: "", bucket:"", s3_host_name: ""}
   end
 
   if Rails.env.production?

@@ -1,6 +1,6 @@
 class InquiryMailer < ActionMailer::Base
-  default from: "circlepit.app.info@gmail.com"   # 送信元アドレス
-  default to: "circlepit.app.info@gmail.com"     # 送信先アドレス
+  default from: "circlepit.app.info@gmail.com" 
+  default to: "circlepit.app.info@gmail.com"   
 
   def received_email(inquiry)
     @inquiry = inquiry

@@ -31,12 +31,12 @@ class User < ActiveRecord::Base
   #   user
   # end
 
-  # 通常サインアップ時のuid用、Twitter OAuth認証時のemail用にuuidな文字列を生成
+
   def self.create_unique_string
     SecureRandom.uuid
   end
 
-  # twitterではemailを取得できないので、適当に一意のemailを生成
+
   # def self.create_unique_email
   #   User.create_unique_string + "@example.com"
   # end

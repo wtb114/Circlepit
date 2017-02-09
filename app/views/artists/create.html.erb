@@ -1,0 +1,10 @@
+<% if user_signed_in? %>
+<div class="contents row">
+    <div class="success">
+      <h2>
+        アーティスト登録が完了しました。
+      </h2>
+      <%= link_to 'アーティスト一覧へ戻る', artists_path, {class: 'btn btn-primary withripple' }%>
+  </div>
+    </div>
+<% end %>

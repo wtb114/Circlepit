@@ -1,0 +1,59 @@
+<% if user_signed_in? %>
+<div class="row form">
+  <div class="col-lg-12">
+    <%= form_for current_user do |f| %>
+      <h2>プロフィール画像</h2>
+      <div class="form-group file">
+        <%= f.file_field :avatar, class: "form-control floating-label", placeholder: "画像アップロード" %>
+      </div>
+      <h2>登録情報</h2>
+      <div class="form-group">
+          ユーザー名(2文字〜15文字)<%= f.text_field :username, placeholder: "ユーザー名(2文字〜15文字)", class: "form-control", :maxlength => "15" %>
+      </div>
+      <div class="form-group">
+      氏名(※公開されません。)
+        <div class="col-lg-6">
+          姓<%= f.text_field :family_name, placeholder: "姓", class: "form-control" %>
+        </div>
+        <div class="col-lg-6">
+          名<%= f.text_field :first_name, placeholder: "名", class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-lg-6">
+          カナ<%= f.text_field :family_name_kana, placeholder: "セイ", class: "form-control" %>
+        </div>
+        <div class="col-lg-6">
+          カナ<%= f.text_field :first_name_kana, placeholder: "メイ", class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">性別<br/>
+          <label><%= f.radio_button :gender, "male" %>男性</label>
+          <label><%= f.radio_button :gender, "female" %>女性</label>
+      </div>
+      <div class="form-group">
+          居住地<%= f.text_field :location, placeholder: "居住地", class: "form-control" %>
+      </div>
+      <div class="form-group">
+          出身地<%= f.text_field :hometown, placeholder: "出身地", class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label "生年月日" %><br/>
+        <%= f.date_select(
+          :birthday,
+          use_month_numbers: true,
+          start_year:     1930,
+          end_year:       (Time.now.year - 18),
+          default:        Date.new(1989, 1, 1),
+          date_separator: '/') %>
+        </div>
+      <div class="form-group">
+          ひとことプロフィール(100文字以内)<%= f.text_area :comment, placeholder: "100文字以内", :maxlength => "100" %>
+      </div>
+      <div class="form-group">
+        <%= f.submit "更新", class: "btn btn-primary withripple" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<% end %>

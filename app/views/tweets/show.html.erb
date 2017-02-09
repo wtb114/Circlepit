@@ -1,0 +1,46 @@
+<h2>投稿</h2>
+<div class="contents row" >
+      <div class="name4"><img src="<%= @tweet.user.avatar.url(:thumb) %>"><%= link_to @tweet.user.username, user_path(@tweet.user), method: :get %></div>
+      <div class="name2"><%= @tweet.created_at.strftime("%Y-%m-%d %H:%M:%S") %></div>
+    <% if user_signed_in? %>
+      <% if user_signed_in? && current_user.id == @tweet.user_id %>
+      <div class="name2">
+       <%= link_to '編集', edit_tweet_path(@tweet), method: :get %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <%= link_to '削除', "/tweets/#{@tweet.id}", method: :delete %>
+      </div>
+      <% end %>
+    <% end %>
+      <div class="name4"><%= simple_format(@tweet.text) %></div>
+</div>
+  <br/>
+
+    <script type="text/javascript">
+var nend_params = {"media":43808,"site":243648,"spot":702492,"type":1,"oriented":1};
+</script>
+<script type="text/javascript" src="https://js1.nend.net/js/nendAdLoader.js"></script>
+<br/>
+
+<div class="contents row" >
+<h2>コメント一覧</h2>
+      <% if @comments %>
+        <% @comments.each do |comment| %>
+        <div class="name2"><img src="<%= comment.user.avatar.url(:thumb) %>"><%= link_to comment.user.username, "/users/#{comment.user_id}" %><br/><%= comment.created_at.strftime("%Y-%m-%d %H:%M:%S") %></div>
+        <div class="name2"><%= comment.text %></div>
+         <% if user_signed_in? %>
+          <% if comment.user_id == current_user.id %>
+          <div class="name2">
+          <%= link_to '削除', "/tweets/#{comment.tweet_id}/comments/#{comment.id}", method: :delete %>
+          </div>
+          <% end %>
+         <% end %>
+        <% end %>
+      <% end %>
+<br/>
+<% if current_user %>
+      <%= form_tag("/tweets/#{@tweet.id}/comments", method: :post) do %>
+        <textarea cols="30" name="text" placeholder="コメントする" rows="2"></textarea>
+        <br/>
+        <input type="submit" value="コメントの投稿">
+      <% end %>
+<% end %>
+    </div>

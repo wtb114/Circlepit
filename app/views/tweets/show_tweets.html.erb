@@ -1,0 +1,22 @@
+<% if user_signed_in? %>
+<h2>自分のツイート一覧</h2>
+<%= link_to 'ツイートを投稿する', new_tweet_path, {class: 'btn btn-primary withripple' }%>
+<%= link_to '自分のコメント一覧', show_comments_path(current_user), {class: 'btn btn-primary withripple' }%>
+<% @tweets.each do |tweet| %>
+    <div class="contents row" >
+      <div class="name2"><%= tweet.created_at.strftime("%Y-%m-%d %H:%M:%S") %></div>
+      <div class="name2"><%= link_to '詳細', tweet_path(tweet), method: :get %></div>
+      <div class="name4"><%= simple_format(tweet.text) %></div>
+    </div>
+    <br/>
+
+<script type="text/javascript">
+var nend_params = {"media":43808,"site":243648,"spot":701028,"type":1,"oriented":1};
+</script>
+<script type="text/javascript" src="https://js1.nend.net/js/nendAdLoader.js"></script>
+<br/>
+
+<% end %>
+  <%= paginate(@tweets) %>
+</div>
+<% end %>

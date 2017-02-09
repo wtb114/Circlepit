@@ -1,0 +1,85 @@
+<div class="contents row" >
+<h2>イベントの詳細&nbsp;&nbsp;(参加者数:<%= @clips.length %>人)</h2>
+  <div class="name4">
+    <%= @event.event_name %>
+    <div class="name2">
+    出演アーティスト:
+    <% unless @event.artist_id == nil %>
+      <% @artist_id = @event.artist_id %>
+      <% @artist = Artist.where(id: @artist_id).first %>
+      /<%= link_to @artist.artist_name,artist_path(@artist) %>
+    <% end %>
+    <% unless @event.artist_id2 == nil %>
+        <% @artist_id2 = @event.artist_id2 %>
+        <% @artist2 = Artist.where(id: @artist_id2).first %>
+        /<%= link_to @artist2.artist_name,artist_path(@artist2) %>
+       <% end %>
+       <% unless @event.artist_id3 == nil %>
+        <% @artist_id3 = @event.artist_id3 %>
+        <% @artist3 = Artist.where(id: @artist_id3).first %>
+        /<%= link_to @artist3.artist_name,artist_path(@artist3) %>
+       <% end %>
+       <% unless @event.artist_id4 == nil %>
+        <% @artist_id4 = @event.artist_id4 %>
+        <% @artist4 = Artist.where(id: @artist_id4).first %>
+        /<%= link_to @artist4.artist_name,artist_path(@artist4) %>
+       <% end %>
+       <% unless @event.artist_id5 == nil %>
+        <% @artist_id5 = @event.artist_id5 %>
+        <% @artist5 = Artist.where(id: @artist_id5).first %>
+        /<%= link_to @artist5.artist_name,artist_path(@artist5) %>
+       <% end %>
+       <% unless @event.artist_id6 == nil %>
+        <% @artist_id6 = @event.artist_id6 %>
+        <% @artist6 = Artist.where(id: @artist_id6).first %>
+        /<%= link_to @artist6.artist_name,artist_path(@artist6) %>
+       <% end %>
+       <% unless @event.artist_id7 == nil %>
+        <% @artist_id7 = @event.artist_id7 %>
+        <% @artist7 = Artist.where(id: @artist_id7).first %>
+        /<%= link_to @artist7.artist_name,artist_path(@artist7) %>
+       <% end %>
+       <% unless @event.artist_id8 == nil %>
+        <% @artist_id8 = @event.artist_id8 %>
+        <% @artist8 = Artist.where(id: @artist_id8).first %>
+        /<%= link_to @artist8.artist_name,artist_path(@artist8) %>
+       <% end %>
+       <% unless @event.artist_id9 == nil %>
+        <% @artist_id9 = @event.artist_id9 %>
+        <% @artist9 = Artist.where(id: @artist_id9).first %>
+        /<%= link_to @artist9.artist_name,artist_path(@artist9) %>
+       <% end %>
+       <% unless @event.artist_id10 == nil %>
+        <% @artist_id10 = @event.artist_id10 %>
+        <% @artist10 = Artist.where(id: @artist_id10).first %>
+        /<%= link_to @artist10.artist_name,artist_path(@artist10) %>
+       <% end %>
+      </div>
+  <% if user_signed_in? %>
+    <% if current_user.id == @event.user_id %>
+    <div class="name2">
+    <%= link_to "このイベントを削除", "/events/#{@event.id}", method: :delete %>
+    </div>
+    <div class="name2">
+    <%= link_to "編集", edit_event_path, method: :get %>
+    </div>
+    <% end %>
+    <%= @event.event_date.strftime("%Y-%m-%d %H:%M:%S") %>
+    <p><%= @event.event_location %></p>
+    <div class="name2">
+    <%= link_to "このイベントに参加", add_event_path(@event), method: :post %>
+    </div>
+  <% end %>
+  </div>
+  <br/>
+
+    <script type="text/javascript">
+var nend_params = {"media":43808,"site":243648,"spot":702492,"type":1,"oriented":1};
+</script>
+<script type="text/javascript" src="https://js1.nend.net/js/nendAdLoader.js"></script>
+<br/>
+
+  <h2><%= @clips.length %>人のユーザーがこのイベントに参加</h2>
+  <%= link_to "参加中のユーザー一覧", "/events/#{@event.id}/show_clips", {class: 'btn btn-primary withripple' } %>
+
+</div>

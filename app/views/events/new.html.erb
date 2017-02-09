@@ -1,0 +1,64 @@
+<% if user_signed_in? %>
+<div class="contents row">
+<%= form_tag('/events', method: :post) do %>
+  <h2>新規イベントの追加</h2>
+  <ul style="list-style:none;">
+
+  <li>
+      <textarea cols="30" rows="1" name="event_name" placeholder="イベント名(必須)" ></textarea>
+  </li>
+  <li>
+      <textarea cols="30" rows="1" name="event_location" placeholder="イベント開催場所(必須)" ></textarea>
+  </li>
+  <%=form_for (@event) do |f| %>
+  <li>
+    <%= f.datetime_select :event_date, :default => Time.now + 1.month %>
+  </li>
+  <li>
+    <a><%= f.label "出演アーティスト" %></a><br/>
+     <%= f.collection_select :artist_id, Artist.all.order("artist_name ASC"), :id, :artist_name, :include_blank => true %>
+  </li>
+  <li>
+    <a><%= f.label "出演アーティスト2" %></a><br/>
+     <%= f.collection_select :artist_id2, Artist.all.order("artist_name ASC"), :id, :artist_name, :include_blank => true %>
+  </li>
+  <li>
+    <a><%= f.label "出演アーティスト3" %></a><br/>
+     <%= f.collection_select :artist_id3, Artist.all.order("artist_name ASC"), :id, :artist_name, :include_blank => true %>
+  </li>
+  <li>
+    <a><%= f.label "出演アーティスト4" %></a><br/>
+     <%= f.collection_select :artist_id4, Artist.all.order("artist_name ASC"), :id, :artist_name, :include_blank => true %>
+  </li>
+  <li>
+    <a><%= f.label "出演アーティスト5" %></a><br/>
+     <%= f.collection_select :artist_id5, Artist.all.order("artist_name ASC"), :id, :artist_name, :include_blank => true %>
+  </li>
+  <li>
+    <a><%= f.label "出演アーティスト6" %></a><br/>
+     <%= f.collection_select :artist_id6, Artist.all.order("artist_name ASC"), :id, :artist_name, :include_blank => true %>
+  </li>
+  <li>
+    <a><%= f.label "出演アーティスト7" %></a><br/>
+     <%= f.collection_select :artist_id7, Artist.all.order("artist_name ASC"), :id, :artist_name, :include_blank => true %>
+  </li>
+  <li>
+    <a><%= f.label "出演アーティスト8" %></a><br/>
+     <%= f.collection_select :artist_id8, Artist.all.order("artist_name ASC"), :id, :artist_name, :include_blank => true %>
+  </li>
+  <li>
+    <a><%= f.label "出演アーティスト9" %></a><br/>
+     <%= f.collection_select :artist_id9, Artist.all.order("artist_name ASC"), :id, :artist_name, :include_blank => true %>
+  </li>
+  <li>
+    <a><%= f.label "出演アーティスト10" %></a><br/>
+     <%= f.collection_select :artist_id10, Artist.all.order("artist_name ASC"), :id, :artist_name, :include_blank => true %>
+  </li>
+    <% end %>
+  <li>
+      <input type="submit" value="　登録　">
+  </li>
+  </ul>
+<% end %>
+</div>
+<% end %>

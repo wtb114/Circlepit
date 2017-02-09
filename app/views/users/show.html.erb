@@ -1,0 +1,84 @@
+
+<div class="row form user_profile">
+  <div class="col-lg-12">
+    <div class="image" style="background-image: url(<%= @user.avatar.url(:medium) %>);"></div>
+    <h4><%= @user.username %></h4>
+    <% if @user.birthday? %>
+    <h4><%= @age %>歳</h4>
+    <% end %>
+    <% if @user.gender == "male" %>
+    <h4>男性</h4>
+    <% elsif @user.gender == "female" %>
+    <h4>女性</h4>
+    <% else %>
+    <% end %>
+    <% if @user.location? %>
+    <h4>居住地: <%= @user.location %></h4>
+    <% end %>
+    <% if @user.hometown? %>
+    <h4>出身地: <%= @user.hometown %></h4>
+    <% end %>
+  <% if user_signed_in? %>
+    <% if current_user.id == @user.id %>
+      <div class="profile_edit">
+        <%= link_to '編集', edit_user_path(current_user), {class: 'btn btn-primary withripple' }%>
+      </div>
+    <% end %>
+  <% end %>
+  </div>
+  <span id="user_<%= @user.id %>" class="follow-wrapper">
+      <%= render 'follow_form', user: @user if signed_in? %>
+    </span>
+  <h4>
+    <%= render 'common/stats' %>
+  </h4>
+  <br/>
+  <h4>プロフィール</h4>
+  <div class = "name2"><%= simple_format(@user.comment) %></div>
+</div>
+<br/>
+
+    <script type="text/javascript">
+var nend_params = {"media":43808,"site":243648,"spot":702492,"type":1,"oriented":1};
+</script>
+<script type="text/javascript" src="https://js1.nend.net/js/nendAdLoader.js"></script>
+<br/>
+
+
+  <h2>ツイート一覧</h2>
+  <%= link_to '全て見る', users_tweets_user_path(@user), {class: 'btn btn-primary withripple' }%>
+      <% @tweets.each do |tweet| %>
+      <Tr>
+      <div class="name2"><%= tweet.created_at.strftime("%Y-%m-%d %H:%M:%S") %></div>
+      <div class="name2"><%= link_to '詳細', tweet_path(tweet), method: :get %></div>
+      <div class="name2"><%= simple_format(tweet.text) %></div>
+    </Tr>
+      <% end %>
+
+  <h2>お気に入りのアーティスト: <%=@favorites_count.length %>組</h2>
+    <%= link_to '全て見る', users_favorites_user_path(@user), {class: 'btn btn-primary withripple' }%>
+    <% @favorites.each do |favorite| %>
+      <% artist = Artist.find(favorite.artist_id) %>
+          <tr>
+            <div class="name2"><%= link_to artist.artist_name,artist_path(artist) %>
+            </div>
+          </tr>
+    <% end %>
+<br />
+
+  <h2>参加中のイベント : <%=@clips_count.length %>件</h2>
+  <%= link_to '全て見る', users_clips_user_path(@user), {class: 'btn btn-primary withripple' }%>
+    <% @clips.each do |clip| %>
+      <% event = Event.find(clip.event_id) %>
+          <tr>
+            <div class="name2"><%= link_to event.event_name,event_path(event) %>
+              <div class="name2">
+            <%= event.event_date.strftime("%Y-%m-%d %H:%M:%S") %>
+            </div>
+            <div class="name2">
+            <%= event.event_location %>
+            </div>
+          </div>
+        </tr>
+        <br/>
+    <% end %>

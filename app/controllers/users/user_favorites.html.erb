@@ -1,0 +1,28 @@
+
+<div class="row">
+  <h2>お気に入りのアーティスト</h2>
+  <span class="name4">お気に入りのアーティスト数 :<%=@favorites.length %>組</span><br/>
+  <%= link_to 'アーティスト検索', artists_path, {class: 'btn btn-primary withripple' }%>
+    <% @favorites.each do |favorite| %>
+      <% artist = Artist.find(favorite.artist_id) %>
+          <tr>
+            <div class="name3"><%= link_to artist.artist_name,artist_path(artist) %>
+              <div class="name2"><%= link_to "お気に入りのアーティストから削除",favorite_path(favorite), method: :delete %>
+              </div>
+            <div class="name2"><a href="<%= artist.artist_url %>" target="_blank">Official ホームページ</a></div>
+            </div>
+
+<br/>
+
+<script type="text/javascript">
+var nend_params = {"media":43808,"site":243648,"spot":701028,"type":1,"oriented":1};
+</script>
+<script type="text/javascript" src="https://js1.nend.net/js/nendAdLoader.js"></script>
+<br/>
+
+          </tr>
+    <br />
+    <% end %>
+    <%= paginate(@favorites) %>
+
+</div>

@@ -1,0 +1,18 @@
+<p>Circlepitへようこそ <%= @email %>さん!</p>
+
+<p>アカウントの承認を下記アカウントからお願いします。</p>
+
+<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+
+<p>※"FACEBOOKでログイン"でご登録の場合は、上記リンク先から再度"FACEBOOKでログイン"からログインしてください。</p>
+
+<p>---------------------------------------------------------------------------------------------</p>
+
+
+<p>Welcome <%= @email %>!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+
+<p>※If you are signing up with "FACEBOOK account",please sign in with "Sign In with Facebook account" again after confirmation through the link above.</p>

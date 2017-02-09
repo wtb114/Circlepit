@@ -1,0 +1,65 @@
+  <h2>お気に入り登録したユーザー&nbsp;&nbsp;<%= @count.length %>人</h2>
+
+  <div class="name4">
+    <%= link_to @artist.artist_name, artist_path(@artist) %></a>
+      <br>(<%= @artist.artist_name_japanese %>)
+    <% if user_signed_in? %>
+      <div class="name2">
+      <%= link_to "お気に入りに登録", add_artist_path(@artist), method: :post %>
+      </div>
+      <div class="name2">
+        <%= link_to "新規イベント登録", new_event_path %>
+      </div>
+      <% if current_user.id == @artist.user_id %>
+      <div class="name2">
+      <%= link_to "削除", "/artists/#{@artist.id}", method: :delete %>
+      </div>
+      <div class="name2">
+      <%= link_to "編集", edit_artist_path, method: :get %>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="content_post" style="background-image: url(<%= @artist.artist_image_url %>);" >
+  </div>
+  <div> Official
+          <a href="<%= @artist.artist_url %>" target="_blank"><%= @artist.artist_url %></a>
+  </div>
+  <br/>
+
+    <script type="text/javascript">
+var nend_params = {"media":43808,"site":243648,"spot":702492,"type":1,"oriented":1};
+</script>
+<script type="text/javascript" src="https://js1.nend.net/js/nendAdLoader.js"></script>
+<br/>
+
+  <h2>ユーザー一覧&nbsp;&nbsp;(<%= @count.length %>人)</h2>
+
+    <% @favorites.each do |favorite| %>
+      <% @user_id = favorite.user_id %>
+      <% user = User.find(@user_id) %>
+          <div class ="name2">&nbsp;</div>
+      <div class="user_avatars">
+        <%= link_to user.username ,user_path(user) %><br/>
+        <span><img src="<%= user.avatar.url(:thumb) %>"></span><br />
+
+        <span class = "name2">
+        <% if user.gender == "male" %>&nbsp;&nbsp;男性
+        <% elsif user.gender == "female" %>&nbsp;&nbsp;女性
+        <% else %>
+        <% end %>
+        <% if user.birthday? %>
+        <% date_format = "%Y%m%d" %>
+        <% @age = (Date.today.strftime(date_format).to_i - user.birthday.strftime(date_format).to_i) / 10000 %>
+        &nbsp;&nbsp;<%= @age %>歳<br/>
+        <% end %>
+        <% if user.location? %>
+        &nbsp;&nbsp;(<%= user.location %>)
+        <% end %>
+      </span>
+      </div>
+      <br/>
+    <% end %>
+<%= paginate(@favorites) %>
+  </div>
+

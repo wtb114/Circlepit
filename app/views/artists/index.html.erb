@@ -1,0 +1,52 @@
+  <h2>アーティスト検索</h2>
+  <span class="name4">登録されたアーティスト:<%=@count.length %>組</span>
+  <div class="contents row" >
+    <div>
+    <%= search_form_for @search do |f| %>
+    <%= f.label :artist_name_or_artist_name_japanese_cont, '🔎' %>
+    <%= f.text_field :artist_name_or_artist_name_japanese_cont %>
+    <%= f.submit '検索' %>
+    <br/>
+    <span class = "name2">※アーティスト名から検索可能です。</span>
+    <br />
+    <%= link_to '検索条件のクリア', request.path %>
+    </div>
+    <br/>
+      <% if user_signed_in? %>
+      <span class = "name2">お目当てのアーティストが見つかりませんか?</span><br/>
+      <%= link_to "新規アーティストの登録", new_artist_path, {class: 'btn btn-primary withripple' } %>
+      <% end %>
+    <% end %>
+
+<br/>
+<script type="text/javascript">
+var nend_params = {"media":43808,"site":243648,"spot":701028,"type":1,"oriented":1};
+</script>
+<script type="text/javascript" src="https://js1.nend.net/js/nendAdLoader.js"></script>
+
+
+<br/>
+
+
+    <% @artists.each do |artist| %>
+    <% @favorites = Favorite.where(artist_id: artist.id).all %>
+      <div class="name3">
+        <%= link_to artist.artist_name,artist_path(artist) %>
+        <div class="name2">
+        お気に入り登録数: <%= link_to "#{@favorites.length}件", show_favorites_artist_path(artist) %><br/>
+        (<%= artist.artist_name_japanese %>)
+        </div>
+      </div>
+      <% if user_signed_in? %>
+      <div class="name2">
+      <%= link_to "お気に入りに登録", add_artist_path(artist), method: :post %>
+      </div>
+      <% end %>
+
+      <div class="content_post" style="background-image: url(<%= artist.artist_image_url %>);">
+      </div>
+
+      <br/>
+    <% end %>
+<%= paginate(@artists) %>
+  </div>
